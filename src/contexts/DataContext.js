@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { postersData } from "../data/postersdata";
+import { postersData } from "../data/postersData";
 
 export const DataContext = createContext();
 export const DataContextProvider = ({ children }) => {
