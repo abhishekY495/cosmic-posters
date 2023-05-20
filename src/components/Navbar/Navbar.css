@@ -1,0 +1,11 @@
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #F1F6F9;
+    padding: 1rem;
+}
+
+.nav-links {
+    color: blue;
+}

@@ -1,0 +1,58 @@
+#about-and-tagline {
+  background-color: black;
+  color: white;
+  height: 30vh;
+  margin: 1rem;
+  padding: 5rem 8rem;
+}
+
+#about {
+  font-size: 1.2rem;
+}
+#tagline {
+  font-size: 2.8rem;
+  margin: 0 0 1rem 0;
+}
+
+#home-explore-link {
+  background-color: blue;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 3px;
+}
+
+#home-explore-link:hover {
+  background-color: #4040fe;
+}
+
+#categories #heading {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+#category-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.category {
+  background-color: black;
+  color: white;
+  padding: 0.8rem;
+  border-radius: 3px;
+  box-shadow: 0 7px 29px 0 #1e1e1ea9;
+}
+.category:hover {
+  background-color: #1e1e1e;
+  cursor: pointer;
+}
+.category-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.category-detail {
+  width: 200px;
+}
