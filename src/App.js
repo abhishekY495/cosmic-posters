@@ -1,7 +1,18 @@
+import { Route, Routes } from "react-router-dom";
+
 function App() {
   return (
     <div className="App">
-      <h1>Cosmic Posters</h1>
+      <Routes>
+        <Route path="/" />
+        <Route path="/posters-listing" />
+        <Route path="/poster/:id" />
+        <Route path="/signup" />
+        <Route path="/login" />
+        <Route path="/profile" />
+        <Route path="/wishlist" />
+        <Route path="/cart" />
+      </Routes>
     </div>
   );
 }
