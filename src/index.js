@@ -4,14 +4,17 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { DataContextProvider } from "./contexts/DataContext";
 import App from "./App";
+import { AuthContextProvider } from "./contexts/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <DataContextProvider>
-        <App />
-      </DataContextProvider>
+      <AuthContextProvider>
+        <DataContextProvider>
+          <App />
+        </DataContextProvider>
+      </AuthContextProvider>
     </Router>
   </React.StrictMode>
 );
