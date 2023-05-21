@@ -10,6 +10,7 @@ export default function PostersListing() {
 
   return (
     <>
+    <div id="poster-list-container">
     <Filters />
     <div id="poster-list">
       {filteredPostersData.map(({ id, name, image, price, rating }) => {
@@ -26,6 +27,7 @@ export default function PostersListing() {
           </div>
         );
       })}
+    </div>
     </div>
     </>
   );

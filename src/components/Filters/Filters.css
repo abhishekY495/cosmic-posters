@@ -1,0 +1,15 @@
+#filters-group {
+  padding: 1rem;
+  background-color: wheat;
+  gap: 1rem;
+  width: 200px;
+}
+
+#filters-group div {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin: 0 0 1rem 0;
+}
