@@ -4,12 +4,12 @@ faker.seed(1);
 export const postersData = [
   {
     id: faker.string.uuid(),
-    name: "Cartwheel Galaxy",
-    category: "galaxy",
+    name: "Earth from ISS",
+    category: "planet",
     description:
-      "The Cartwheel Galaxy, located about 500 million light-years away in the Sculptor constellation, is a rare sight captured by NASA's James Webb Space Telescope.",
+      "Florida, the Bahamas and Cuba as seen by the International Space Station.",
     image:
-      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571413/galaxy/Cartwheel_Galaxy_agu0er.jpg",
+      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571226/planet/Earth_from_ISS_uo4zvh.jpg",
     price: faker.number.float({min:100, max:500, precision:0.01}),
       rating: faker.number.float({min:1, max:5, precision:0.1}),
   },
@@ -26,23 +26,45 @@ export const postersData = [
   },
   {
     id: faker.string.uuid(),
-    name: "Earth from ISS",
-    category: "planet",
+    name: "Cartwheel Galaxy",
+    category: "galaxy",
     description:
-      "Florida, the Bahamas and Cuba as seen by the International Space Station.",
+      "The Cartwheel Galaxy, located about 500 million light-years away in the Sculptor constellation, is a rare sight captured by NASA's James Webb Space Telescope.",
     image:
-      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571226/planet/Earth_from_ISS_uo4zvh.jpg",
+      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571413/galaxy/Cartwheel_Galaxy_agu0er.jpg",
     price: faker.number.float({min:100, max:500, precision:0.01}),
       rating: faker.number.float({min:1, max:5, precision:0.1}),
   },
   {
     id: faker.string.uuid(),
-    name: "Arp 273",
-    category: "galaxy",
+    name: "Helix Nebula",
+    category: "nebula",
     description:
-      "Arp 273 is a pair of interacting galaxies, 300 million light-years, combining to form a beautiful a rose like structure in this image taken by the Hubble Space Telescope. It is thought that the smaller galaxy has actually passed through the larger one.",
+      'The Helix Nebula, also known as the "Eye of God" or the "Eye of Sauron," is a large planetary nebula located in the constellation Aquarius.',
     image:
-      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571413/galaxy/Arp_273_ihyq1f.jpg",
+      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571275/nebula/Helix_Nebula_lx3kbz.jpg",
+    price: faker.number.float({min:100, max:500, precision:0.01}),
+      rating: faker.number.float({min:1, max:5, precision:0.1}),
+  },
+  {
+    id: faker.string.uuid(),
+    name: "Voyager 1",
+    category: "misc",
+    description:
+      "A self-portrait of NASA's Curiosity Mars rover in Gale Crater on Mars.",
+    image:
+      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571341/misc/Voyager_1_bg0afs.jpg",
+    price: faker.number.float({min:100, max:500, precision:0.01}),
+      rating: faker.number.float({min:1, max:5, precision:0.1}),
+  },
+  {
+    id: faker.string.uuid(),
+    name: "Uranus Rings",
+    category: "planet",
+    description:
+      "This infrared composite image of Uranus and its rings comes from the Keck Telescope. The rings may have been formed by the break up of a small moon.",
+    image:
+      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571224/planet/Uranus_Rings_nx4ccs.jpg",
     price: faker.number.float({min:100, max:500, precision:0.01}),
       rating: faker.number.float({min:1, max:5, precision:0.1}),
   },
@@ -213,28 +235,6 @@ export const postersData = [
   },
   {
     id: faker.string.uuid(),
-    name: "Uranus Rings",
-    category: "planet",
-    description:
-      "This infrared composite image of Uranus and its rings comes from the Keck Telescope. The rings may have been formed by the break up of a small moon.",
-    image:
-      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571224/planet/Uranus_Rings_nx4ccs.jpg",
-    price: faker.number.float({min:100, max:500, precision:0.01}),
-      rating: faker.number.float({min:1, max:5, precision:0.1}),
-  },
-  {
-    id: faker.string.uuid(),
-    name: "Helix Nebula",
-    category: "nebula",
-    description:
-      'The Helix Nebula, also known as the "Eye of God" or the "Eye of Sauron," is a large planetary nebula located in the constellation Aquarius.',
-    image:
-      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571275/nebula/Helix_Nebula_lx3kbz.jpg",
-    price: faker.number.float({min:100, max:500, precision:0.01}),
-      rating: faker.number.float({min:1, max:5, precision:0.1}),
-  },
-  {
-    id: faker.string.uuid(),
     name: "Hokusai crater on Mercury",
     category: "planet",
     description:
@@ -323,12 +323,12 @@ export const postersData = [
   },
   {
     id: faker.string.uuid(),
-    name: "Voyager 1",
-    category: "misc",
+    name: "Arp 273",
+    category: "galaxy",
     description:
-      "A self-portrait of NASA's Curiosity Mars rover in Gale Crater on Mars.",
+      "Arp 273 is a pair of interacting galaxies, 300 million light-years, combining to form a beautiful a rose like structure in this image taken by the Hubble Space Telescope. It is thought that the smaller galaxy has actually passed through the larger one.",
     image:
-      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571341/misc/Voyager_1_bg0afs.jpg",
+      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571413/galaxy/Arp_273_ihyq1f.jpg",
     price: faker.number.float({min:100, max:500, precision:0.01}),
       rating: faker.number.float({min:1, max:5, precision:0.1}),
   },
