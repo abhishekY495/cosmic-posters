@@ -1,17 +1,30 @@
 import React, { useContext } from "react";
-import { DataContext } from "../../contexts/DataContext";
 
+import { DataContext } from "../../contexts/DataContext";
 import "./Filters.css";
 
 export default function Filters() {
-  const { categories } = useContext(DataContext);
+  const { categories, dispatch, state } = useContext(DataContext);
+
+  const checkboxHandler = (e) => {
+    dispatch({
+      type: "SELECT_CATEGORY",
+      payload: e.target.value,
+    });
+  };
+
   return (
     <div id="filters-group">
       <div id="categories-checkbox">
         {categories.map((category) => {
           return (
-            <label>
-              <input type="checkbox" />
+            <label key={category}>
+              <input
+                type="checkbox"
+                value={category}
+                checked={state.selectedCategories.includes(category)}
+                onChange={checkboxHandler}
+              />
               {category}
             </label>
           );

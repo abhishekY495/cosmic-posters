@@ -1,26 +1,28 @@
 import { createContext, useReducer } from "react";
 
-import { postersData } from "../data/postersData";
-import { initState, postersDataReducer } from "../reducers/postersDataReducer";
+import { initState, postersReducer } from "../reducers/postersDataReducer";
 
 export const DataContext = createContext();
 export const DataContextProvider = ({ children }) => {
-  const categories = postersData.reduce((acc, { category }) => {
+  const categories = initState.postersData.reduce((acc, { category }) => {
     return acc.includes(category) ? acc : [...acc, category];
   }, []);
 
-  const [state, dispatch] = useReducer(postersDataReducer, initState);
+  const [state, dispatch] = useReducer(postersReducer, initState);
 
-  const filteredPostersData = postersData.filter((poster) => {
+  const filteredPostersData = state.postersData.filter((poster) => {
     const searchedPosters = poster.name
       .toLowerCase()
       .includes(state.searchValue);
-    return searchedPosters;
+    const selectedCategoryPosters =
+      state.selectedCategories.length === 0 ||
+      state.selectedCategories.includes(poster.category);
+    return searchedPosters && selectedCategoryPosters;
   });
 
   return (
     <DataContext.Provider
-      value={{ filteredPostersData, categories, dispatch }}
+      value={{ filteredPostersData, categories, state, dispatch }}
     >
       {children}
     </DataContext.Provider>

@@ -6,13 +6,24 @@ export const initState = {
   selectedCategories: [],
 };
 
-export const postersDataReducer = (state, action) => {
+export const postersReducer = (state, action) => {
   switch (action.type) {
     case "SEARCH_POSTER": {
       return { ...state, searchValue: action.payload };
     }
-    case "": {
-      break;
+    case "SELECT_CATEGORY": {
+      const selectedCategory = action.payload;
+      return state.selectedCategories.includes(selectedCategory)
+        ? {
+            ...state,
+            selectedCategories: state.selectedCategories.filter(
+              (category) => category !== selectedCategory
+            ),
+          }
+        : {
+            ...state,
+            selectedCategories: [...state.selectedCategories, selectedCategory],
+          };
     }
     default:
       return state;
