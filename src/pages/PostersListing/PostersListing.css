@@ -1,9 +1,9 @@
-#poster-list-container {
+#posters-list-container {
   display: flex;
   gap: 2rem;
 }
 
-#poster-list {
+#posters-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
