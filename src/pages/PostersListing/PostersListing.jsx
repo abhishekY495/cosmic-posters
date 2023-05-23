@@ -6,14 +6,14 @@ import "./PostersListing.css";
 import Filters from "../../components/Filters/Filters";
 
 export default function PostersListing() {
-  const { filteredPostersData } = useContext(DataContext);
+  const { postersData } = useContext(DataContext);
 
   return (
     <>
       <div id="posters-list-container">
         <Filters />
         <div id="posters-list">
-          {filteredPostersData.map(({ id, name, image, price, rating }) => {
+          {postersData.map(({ id, name, image, price, rating }) => {
             return (
               <div className="poster" key={id}>
                 <Link to={`/poster/${id}`}>

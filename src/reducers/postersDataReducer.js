@@ -4,12 +4,16 @@ export const initState = {
   postersData,
   searchValue: "",
   selectedCategories: [],
+  sortPrice: "",
+  priceRange: 500,
+  filterRating: null,
 };
 
 export const postersReducer = (state, action) => {
   switch (action.type) {
     case "SEARCH_POSTER": {
-      return { ...state, searchValue: action.payload };
+      const searchValue = action.payload;
+      return { ...state, searchValue };
     }
     case "SELECT_CATEGORY": {
       const selectedCategory = action.payload;
@@ -24,6 +28,27 @@ export const postersReducer = (state, action) => {
             ...state,
             selectedCategories: [...state.selectedCategories, selectedCategory],
           };
+    }
+    case "SORT_PRICE": {
+      const sortPrice = action.payload;
+      return {
+        ...state,
+        sortPrice,
+      };
+    }
+    case "FILTER_PRICE_RANGE": {
+      const priceRange = Number(action.payload);
+      return {
+        ...state,
+        priceRange,
+      }
+    }
+    case "FILTER_RATING": {
+      const filterRating = Number(action.payload);
+      return {
+        ...state,
+        filterRating,
+      };
     }
     default:
       return state;

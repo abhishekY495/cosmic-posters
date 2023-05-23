@@ -17,12 +17,28 @@ export const DataContextProvider = ({ children }) => {
     const selectedCategoryPosters =
       state.selectedCategories.length === 0 ||
       state.selectedCategories.includes(poster.category);
-    return searchedPosters && selectedCategoryPosters;
+    const filterByPriceRange =
+      poster.price >= 100 && poster.price <= state.priceRange;
+    const filterByRating = poster.rating > state.filterRating;
+    return (
+      searchedPosters &&
+      selectedCategoryPosters &&
+      filterByPriceRange &&
+      filterByRating
+    );
+  });
+
+  const sortedPostersData = filteredPostersData.sort((a, b) => {
+    if (state.sortPrice === "high-to-low") {
+      return b.price - a.price;
+    } else if (state.sortPrice === "low-to-high") {
+      return a.price - b.price;
+    }
   });
 
   return (
     <DataContext.Provider
-      value={{ filteredPostersData, categories, state, dispatch }}
+      value={{ postersData: sortedPostersData, categories, state, dispatch }}
     >
       {children}
     </DataContext.Provider>
