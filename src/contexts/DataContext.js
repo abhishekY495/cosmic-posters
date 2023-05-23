@@ -34,7 +34,7 @@ export const DataContextProvider = ({ children }) => {
     } else if (state.sortPrice === "low-to-high") {
       return a.price - b.price;
     }
-    return null;
+    return filteredPostersData;
   });
 
   return (
