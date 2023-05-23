@@ -1,0 +1,15 @@
+#poster {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: flex-end;
+  gap: 1rem;
+  width: 500px;
+  margin: 2rem auto;
+}
+
+#poster-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: top center;
+}
