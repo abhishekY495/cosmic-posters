@@ -2,10 +2,17 @@
   padding: 1rem;
   background-color: wheat;
   gap: 1rem;
-  width: 200px;
 }
 
-#filters-group div {
+#filters-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+#categories-checkbox,
+#price-radio,
+#price-range,
+#rating-radio {
   display: flex;
   flex-direction: column;
   padding: 0.5rem;

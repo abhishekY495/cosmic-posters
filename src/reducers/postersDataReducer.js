@@ -9,6 +9,8 @@ export const initState = {
   filterRating: null,
 };
 
+const initStateCopy = { ...initState };
+
 export const postersReducer = (state, action) => {
   switch (action.type) {
     case "SEARCH_POSTER": {
@@ -41,13 +43,18 @@ export const postersReducer = (state, action) => {
       return {
         ...state,
         priceRange,
-      }
+      };
     }
     case "FILTER_RATING": {
       const filterRating = Number(action.payload);
       return {
         ...state,
         filterRating,
+      };
+    }
+    case "CLEAR_ALL_FILTERS": {
+      return {
+        ...initStateCopy,
       };
     }
     default:

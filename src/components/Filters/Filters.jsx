@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import { DataContext } from "../../contexts/DataContext";
 import "./Filters.css";
 
 export default function Filters() {
   const { categories, dispatch, state } = useContext(DataContext);
-  const [priceRange, setPriceRange] = useState(500);
 
   const checkboxHandler = (e) => {
     dispatch({
@@ -23,7 +22,6 @@ export default function Filters() {
 
   const priceRangeHandler = (e) => {
     const rangeValue = e.target.value;
-    setPriceRange(rangeValue);
     dispatch({ type: "FILTER_PRICE_RANGE", payload: rangeValue });
   };
 
@@ -34,8 +32,17 @@ export default function Filters() {
     });
   };
 
+  const clearFiltersBtnHandler = () => {
+    console.log(state);
+    dispatch({ type: "CLEAR_ALL_FILTERS" });
+  };
+
   return (
     <div id="filters-group">
+      <div id="filters-heading">
+        <p>Filters</p>
+        <button onClick={clearFiltersBtnHandler}>Clear All</button>
+      </div>
       <div id="categories-checkbox">
         {categories.map((category) => {
           return (
@@ -58,6 +65,7 @@ export default function Filters() {
             type="radio"
             name="price"
             value="high-to-low"
+            checked={state.sortPrice === "high-to-low" && true}
             onChange={priceRadioHandler}
           />
           High to Low
@@ -67,6 +75,7 @@ export default function Filters() {
             type="radio"
             name="price"
             value="low-to-high"
+            checked={state.sortPrice === "low-to-high" && true}
             onChange={priceRadioHandler}
           />
           Low to High
@@ -76,14 +85,14 @@ export default function Filters() {
       <div id="price-range">
         <label>
           <p>
-            Price: <span>100</span> - <span>{priceRange}</span>{" "}
+            Price: <span>100</span> - <span>{state.priceRange}</span>{" "}
           </p>
           <input
             type="range"
             min={100}
             max={500}
             step={5}
-            value={priceRange}
+            value={state.priceRange}
             onChange={priceRangeHandler}
           />
         </label>
@@ -95,6 +104,7 @@ export default function Filters() {
             type="radio"
             name="rating"
             value="4"
+            checked={state.filterRating === 4 ? true : false}
             onChange={ratingRadioHandler}
           />
           4 Stars & above
@@ -104,6 +114,7 @@ export default function Filters() {
             type="radio"
             name="rating"
             value="3"
+            checked={state.filterRating === 3 && true}
             onChange={ratingRadioHandler}
           />
           3 Stars & above
@@ -113,6 +124,7 @@ export default function Filters() {
             type="radio"
             name="rating"
             value="2"
+            checked={state.filterRating === 2 && true}
             onChange={ratingRadioHandler}
           />
           2 Stars & above
@@ -122,6 +134,7 @@ export default function Filters() {
             type="radio"
             name="rating"
             value="1"
+            checked={state.filterRating === 1 && true}
             onChange={ratingRadioHandler}
           />
           1 Stars & above
