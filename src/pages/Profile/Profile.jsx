@@ -15,6 +15,7 @@ export default function Profile() {
   return (
     <div>
       <p>{user && user.email}</p>
+      <p>{user && user.displayName}</p>
       <button onClick={logoutBtnHandler}>Logout</button>
     </div>
   );
