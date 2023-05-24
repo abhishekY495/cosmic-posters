@@ -1,11 +1,17 @@
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    background-color: #F1F6F9;
-    padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.5rem;
+  background-color: #f1f6f9;
+  padding: 1rem;
+  font-size: 1.2rem;
 }
 
 .nav-links {
-    color: blue;
+  color: blue;
+}
+
+sup {
+  color: orangered;
 }
