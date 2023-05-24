@@ -2,9 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { DataContextProvider } from "./contexts/DataContext";
-import App from "./App";
 import { AuthContextProvider } from "./contexts/AuthContext";
+import { DataContextProvider } from "./contexts/DataContext";
+import { CartContextProvider } from "./contexts/CartContext";
+import { WishlistContextProvider } from "./contexts/WishlistContext";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,7 +14,11 @@ root.render(
     <Router>
       <AuthContextProvider>
         <DataContextProvider>
-          <App />
+          <CartContextProvider>
+            <WishlistContextProvider>
+              <App />
+            </WishlistContextProvider>
+          </CartContextProvider>
         </DataContextProvider>
       </AuthContextProvider>
     </Router>
