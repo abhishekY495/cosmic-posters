@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
+import { AuthContext } from "../../contexts/AuthContext";
 import { DataContext } from "../../contexts/DataContext";
 import { CartContext } from "../../contexts/CartContext";
 import { WishlistContext } from "../../contexts/WishlistContext";
@@ -17,19 +18,29 @@ export default function PostersListing() {
     state: { wishlist },
     dispatch: wishlistDispatch,
   } = useContext(WishlistContext);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const addToCartBtnHandler = (poster) => {
-    cartDispatch({ type: "ADD_TO_CART", payload: poster });
+    user
+      ? cartDispatch({ type: "ADD_TO_CART", payload: poster })
+      : navigate("/login");
   };
   const removeFromCartBtnHandler = (id) => {
-    cartDispatch({ type: "REMOVE_FROM_CART", payload: id });
+    user
+      ? cartDispatch({ type: "REMOVE_FROM_CART", payload: id })
+      : navigate("/login");
   };
 
   const addToWishlistBtnHandler = (poster) => {
-    wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: poster });
+    user
+      ? wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: poster })
+      : navigate("/login");
   };
   const removeFromWishlistBtnHandler = (id) => {
-    wishlistDispatch({ type: "REMOVE_FROM_WISHLIST", payload: id });
+    user
+      ? wishlistDispatch({ type: "REMOVE_FROM_WISHLIST", payload: id })
+      : navigate("/login");
   };
 
   return (
