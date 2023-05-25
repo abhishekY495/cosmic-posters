@@ -10,6 +10,7 @@ export default function Authentication({ signup, login }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const test = true;
 
   const signUpBtnHandler = async () => {
     if (email.length === 0) {
@@ -27,8 +28,15 @@ export default function Authentication({ signup, login }) {
     }
   };
 
-  const loginBtnHandler = async () => {
-    if (email.length === 0) {
+  const loginBtnHandler = async (test) => {
+    if (test) {
+      try {
+        await loginUser("neilarmstrong@nasa.com", "neil@123456");
+        setMessage("You have Logged In.");
+      } catch (error) {
+        console.log(error);
+      }
+    } else if (email.length === 0) {
       console.log("Enter email...");
     } else if (password.length === 0) {
       console.log("Enter password...");
@@ -68,7 +76,10 @@ export default function Authentication({ signup, login }) {
       )}
       {login && (
         <>
-          <button onClick={loginBtnHandler}>Login</button>
+          <button onClick={() => loginBtnHandler()}>Login</button>
+          <button onClick={() => loginBtnHandler(test)}>
+            Login with Test Credentials
+          </button>
           <p>
             Dont have an Account? <Link to="/signup">Sign Up</Link>
           </p>
