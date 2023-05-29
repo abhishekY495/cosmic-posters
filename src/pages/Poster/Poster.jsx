@@ -27,11 +27,7 @@ export default function Poster() {
       ? cartDispatch({ type: "ADD_TO_CART", payload: poster })
       : navigate("/login");
   };
-  const removeFromCartBtnHandler = (id) => {
-    user
-      ? cartDispatch({ type: "REMOVE_FROM_CART", payload: id })
-      : navigate("/login");
-  };
+  const goToCartBtnHandler = () => navigate("/cart");
 
   const addToWishlistBtnHandler = () => {
     user
@@ -53,9 +49,7 @@ export default function Poster() {
         <p id="poster-price">₹{poster?.price}</p>
         <p id="poster-description">{poster?.description}</p>
         {cart.find(({ id }) => id === poster.id) ? (
-          <button onClick={() => removeFromCartBtnHandler(poster.id)}>
-            Remove from Cart
-          </button>
+          <button onClick={goToCartBtnHandler}>Go to Cart</button>
         ) : (
           <button onClick={() => addToCartBtnHandler(poster)}>
             Add to Cart
