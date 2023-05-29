@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import { AddressContext } from "../../contexts/AddressContext";
-import AddAddress from "../../components/Address/AddAddress";
-import AddressListing from "../../components/Address/AddressListing";
+import AddressFormModal from "../../components/Address/AddressFormModal/AddressFormModal";
+import AddressListing from "../../components/Address/AddressListing/AddressListing";
 import "./Profile.css";
 
 export default function Profile() {
@@ -12,9 +12,9 @@ export default function Profile() {
     state: { addresses },
     dispatch,
   } = useContext(AddressContext);
-  const [openAddAddress, setOpenAddAddress] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
-  const toggleAddAddressModal = () => setOpenAddAddress(!openAddAddress);
+  const toggleAddressFormModal = () => setOpenModal(!openModal);
 
   const logoutBtnHandler = async () => {
     try {
@@ -32,23 +32,26 @@ export default function Profile() {
   };
 
   return (
-    <div id="profile">
-      <p>{user && user.email}</p>
-      <p>{user && user.displayName}</p>
-      <button onClick={logoutBtnHandler}>Logout</button>
-      <br />
-      <button onClick={toggleAddAddressModal}>Add Address</button>
-      <AddAddress
-        openAddAddress={openAddAddress}
-        setOpenAddAddress={setOpenAddAddress}
-      />
-      <br />
-      {addresses.length > 0 &&
-        addresses.map((address) => {
-          return (
-            <AddressListing key={address.id} address={address} deleteAddress={deleteAddress} />
-          );
-        })}
-    </div>
+    <>
+      <AddressFormModal openModal={openModal} setOpenModal={setOpenModal} />
+      <div id="profile">
+        <p>{user && user.email}</p>
+        <p>{user && user.displayName}</p>
+        <button onClick={logoutBtnHandler}>Logout</button>
+        <br />
+        <button onClick={toggleAddressFormModal}>Add Address</button>
+        <br />
+        {addresses.length > 0 &&
+          addresses.map((address) => {
+            return (
+              <AddressListing
+                key={address.id}
+                address={address}
+                deleteAddress={deleteAddress}
+              />
+            );
+          })}
+      </div>
+    </>
   );
 }
