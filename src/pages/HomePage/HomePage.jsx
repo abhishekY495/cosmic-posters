@@ -1,9 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
+import { categoryInfo } from "../../data/categoryInfo";
+import { DataContext } from "../../contexts/DataContext";
 import "./HomePage.css";
 
 export default function HomePage() {
+  const { dispatch } = useContext(DataContext);
+  const navigate = useNavigate();
+
+  const visitCategory = (category) => {
+    dispatch({ type: "CLEAR_ALL_FILTERS" });
+    dispatch({ type: "SELECT_CATEGORY", payload: category });
+    navigate("/posters-listing");
+  };
+
   return (
     <>
       <div id="home-container">
@@ -17,36 +28,17 @@ export default function HomePage() {
         <div id="categories">
           <p id="heading">Featured Categories</p>
           <div id="category-row">
-            <div className="category">
-              <p className="category-name">Planet</p>
-              <p className="category-detail">
-                Our solar system is home to 8 amazing planets, ranging from
-                small rocky worlds to large and gaseous with extreme
-                temperatures.
-              </p>
-            </div>
-            <div className="category">
-              <p className="category-name">Moon</p>
-              <p className="category-detail">
-                Moons come in many shapes, sizes, and types. Few have
-                atmospheres and even hidden oceans beneath their surfaces.
-              </p>
-            </div>
-            <div className="category">
-              <p className="category-name">Galaxy</p>
-              <p className="category-detail">
-                Galaxies are a huge collection of gas, dust, and billions of
-                stars and their solar systems, all held together by gravity.
-              </p>
-            </div>
-            <div className="category">
-              <p className="category-name">Nebula</p>
-              <p className="category-detail">
-                A nebula is a giant cloud of dust and gas in space that come
-                from the gas and dust thrown out by the explosion of a dying
-                star.
-              </p>
-            </div>
+            {categoryInfo.map(({ name, description }) => {
+              return (
+                <div
+                  className="category"
+                  onClick={() => visitCategory(name.toLowerCase())}
+                >
+                  <p className="category-name">{name}</p>
+                  <p className="category-description">{description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
