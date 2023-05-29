@@ -360,7 +360,7 @@ export const postersData = data.map((poster) => {
   return {
     ...poster,
     id: faker.string.uuid(),
-    price: faker.number.float({ min: 100, max: 500, precision: 0.01 }),
-    rating: faker.number.float({ min: 1, max: 5, precision: 0.1 }),
+    price: faker.number.float({ min: 100, max: 500 }).toFixed(2),
+    rating: faker.number.float({ min: 1, max: 5 }).toFixed(1),
   };
 });
