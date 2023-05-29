@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { AddressContext } from "../../contexts/AddressContext";
 import AddAddress from "../../components/Address/AddAddress";
+import AddressListing from "../../components/Address/AddressListing";
 import "./Profile.css";
 
 export default function Profile() {
@@ -45,21 +46,7 @@ export default function Profile() {
       {addresses.length > 0 &&
         addresses.map((address) => {
           return (
-            <div key={address.id}>
-              <p>{address.name}</p>
-              <p>{address.mobile}</p>
-              <p>{address.address}</p>
-              <p>{address.pincode}</p>
-              <p>{address.city}</p>
-              <p>{address.state}</p>
-              <div>
-                <button>Edit</button>
-                <button onClick={() => deleteAddress(address.id)}>
-                  Delete
-                </button>
-              </div>
-              <hr />
-            </div>
+            <AddressListing key={address.id} address={address} deleteAddress={deleteAddress} />
           );
         })}
     </div>
