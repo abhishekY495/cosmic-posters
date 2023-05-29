@@ -18,6 +18,7 @@ export default function AddAddress({ openAddAddress, setOpenAddAddress }) {
       type: "ADD_ADDRESS",
       payload: { ...address, id: faker.string.uuid() },
     });
+    setOpenAddAddress(false);
   };
 
   return (
