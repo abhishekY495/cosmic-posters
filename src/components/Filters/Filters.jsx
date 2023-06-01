@@ -41,9 +41,12 @@ export default function Filters() {
     <div id="filters-group">
       <div id="filters-heading">
         <p>Filters</p>
-        <button onClick={clearFiltersBtnHandler}>Clear All</button>
+        <button id="clear-btn" onClick={clearFiltersBtnHandler}>
+          Clear
+        </button>
       </div>
-      <div id="categories-checkbox">
+      <div className="filter-category categories-checkbox">
+        <p className="filter-name">Category</p>
         {categories.map((category) => {
           return (
             <label key={category}>
@@ -59,7 +62,8 @@ export default function Filters() {
         })}
       </div>
       {/*  */}
-      <div id="price-radio">
+      <div className="filter-category price-radio">
+        <p className="filter-name">Sort Price</p>
         <label>
           <input
             type="radio"
@@ -82,11 +86,10 @@ export default function Filters() {
         </label>
       </div>
       {/*  */}
-      <div id="price-range">
+      <div className="filter-category price-range">
+        <p className="filter-name">Price Range</p>
         <label>
-          <p>
-            Price: <span>100</span> - <span>{state.priceRange}</span>{" "}
-          </p>
+          <p>₹100 - ₹{state.priceRange}</p>
           <input
             type="range"
             min={100}
@@ -98,7 +101,8 @@ export default function Filters() {
         </label>
       </div>
       {/*  */}
-      <div id="rating-radio">
+      <div className="filter-category rating-radio">
+        <p className="filter-name">Rating</p>
         <label>
           <input
             type="radio"

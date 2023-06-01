@@ -51,29 +51,45 @@ export default function PostersListing() {
                 <Link to={`/poster/${id}`}>
                   <img className="poster-image" src={image} alt={name} />
                 </Link>
-                <p className="poster-name">{name}</p>
-                <div className="price-rating">
-                  <span>{price}</span>
-                  <span>{rating}</span>
+                <div className="poster-info">
+                  <p className="poster-name">{name}</p>
+                  <p className="poster-price">₹{price}</p>
+                  <p className="poster-rating">
+                    <img
+                      className="star-icon"
+                      src="https://img.icons8.com/?size=22&id=8ggStxqyboK5&format=svg"
+                      alt="star"
+                    />
+                    {rating}
+                  </p>
+                  {cart.find((poster) => poster.id === id) ? (
+                    <button className="cart-btn incart-btn" onClick={goToCartBtnHandler}>
+                      Go to Cart
+                    </button>
+                  ) : (
+                    <button
+                      className="cart-btn"
+                      onClick={() => addToCartBtnHandler(poster)}
+                    >
+                      Add to Cart
+                    </button>
+                  )}
+                  {wishlist.find((poster) => poster.id === id) ? (
+                    <img
+                      className="wishlist-icon"
+                      onClick={() => removeFromWishlistBtnHandler(id)}
+                      src="https://img.icons8.com/?size=22&id=V4c6yYlvXtzy&format=svg"
+                      alt="red-heart"
+                    />
+                  ) : (
+                    <img
+                      className="wishlist-icon"
+                      onClick={() => addToWishlistBtnHandler(poster)}
+                      src="https://img.icons8.com/?size=22&id=4yauMM-kbvJ-&format=svg"
+                      alt="heart"
+                    />
+                  )}
                 </div>
-                {cart.find((poster) => poster.id === id) ? (
-                  <button onClick={goToCartBtnHandler}>
-                    Go to Cart
-                  </button>
-                ) : (
-                  <button onClick={() => addToCartBtnHandler(poster)}>
-                    Add to Cart
-                  </button>
-                )}
-                {wishlist.find((poster) => poster.id === id) ? (
-                  <button onClick={() => removeFromWishlistBtnHandler(id)}>
-                    Remove from Wishlist
-                  </button>
-                ) : (
-                  <button onClick={() => addToWishlistBtnHandler(poster)}>
-                    Add to Wishlist
-                  </button>
-                )}
               </div>
             );
           })}
