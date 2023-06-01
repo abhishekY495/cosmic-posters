@@ -14,24 +14,45 @@ export default function Navbar() {
     state: { wishlist },
   } = useContext(WishlistContext);
 
+  const cartCount = cart.length;
+  const wishlistCount = wishlist.length;
+
   return (
     <nav>
-      <Link className="nav-links" to="/">
-        Cosmic 🖼️
-      </Link>
-      <SearchBar />
-      <Link className="nav-links" to="/posters-listing">
-        Explore
-      </Link>
-      <Link className="nav-links" to="wishlist">
-        Wishlist <sup>{wishlist.length}</sup>
-      </Link>
-      <Link className="nav-links" to="cart">
-        Cart <sup>{cart.length}</sup>
-      </Link>
-      <Link className="nav-links" to="profile">
-        Profile
-      </Link>
+      <div id="nav-home-search-group">
+        <Link className="nav-links nav-home-link" to="/">
+          <p>
+            Cosmic{" "}
+            <img
+              src="https://cdn-icons-png.flaticon.com/16/1453/1453992.png"
+              alt="poster"
+            />
+          </p>
+        </Link>
+        <SearchBar />
+      </div>
+      <div id="nav-links-group">
+        <Link className="nav-links nav-wishlist-link" to="wishlist">
+          <img
+            src="https://img.icons8.com/?size=22&id=59805&format=svg"
+            alt="wishlist"
+          />
+          {wishlistCount > 0 && <sup>{wishlistCount}</sup>}
+        </Link>
+        <Link className="nav-links nav-cart-link" to="cart">
+          <img
+            src="https://img.icons8.com/?size=22&id=59997&format=svg"
+            alt="cart"
+          />
+          {cartCount > 0 && <sup>{cartCount}</sup>}
+        </Link>
+        <Link className="nav-links nav-profile-link" to="profile">
+          <img
+            src="https://img.icons8.com/?size=22&id=84898&format=svg"
+            alt="profile"
+          />
+        </Link>
+      </div>
     </nav>
   );
 }
