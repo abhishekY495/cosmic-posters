@@ -28,9 +28,10 @@ export default function HomePage() {
         <div id="categories">
           <p id="heading">Featured Categories</p>
           <div id="category-row">
-            {categoryInfo.map(({ name, description }) => {
+            {categoryInfo.map(({ name, description }, index) => {
               return (
                 <div
+                  key={index}
                   className="category"
                   onClick={() => visitCategory(name.toLowerCase())}
                 >
