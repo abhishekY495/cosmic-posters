@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { DataContext } from "../../contexts/DataContext";
+import "./SearchBar.css";
 
 export default function SearchBar() {
   const { dispatch } = useContext(DataContext);

@@ -1,17 +1,41 @@
+@import url(../../App.css);
+
 nav {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  gap: 1.5rem;
-  background-color: #f1f6f9;
-  padding: 1rem;
-  font-size: 1.2rem;
+  align-items: center;
+  gap: 5rem;
+  background-color: var(--nav-background-color);
+  border-bottom: 2px solid black;
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 1rem;
+  font-size: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .nav-links {
-  color: blue;
+  position: relative;
+}
+
+#nav-home-search-group {
+  display: flex;
+  gap: 1rem;
+}
+
+#nav-links-group {
+  display: flex;
+  gap: 2rem;
+  padding: 10px 0 0 0;
 }
 
 sup {
-  color: orangered;
+  position: absolute;
+  top: -0.2rem;
+  right: -12px;
+  background-color: var(--sup-background-color);
+  font-size: 12px;
+  padding: 1px 5px;
+  border-radius: 100%;
 }

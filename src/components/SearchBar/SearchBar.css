@@ -1,0 +1,18 @@
+@import url(../../App.css);
+
+#navbar-search {
+  width: 500px;
+  height: 1.7rem;
+  border-radius: 3px;
+  border: 1px solid var(--navbar-search-border-color);
+  padding: 0 0 0 0.5rem;
+}
+
+#navbar-search:hover {
+  border: 1px solid var(--primary-accent-color);
+}
+
+#navbar-search:focus {
+  border: 1px solid var(--primary-accent-color);
+  outline: 1px solid var(--primary-accent-color);
+}

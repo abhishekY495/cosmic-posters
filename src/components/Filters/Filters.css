@@ -1,22 +1,55 @@
+@import url(../../App.css);
+
 #filters-group {
-  padding: 1rem;
-  background-color: wheat;
-  gap: 1rem;
+  flex: 1 1 250px;
+  height: 100%;
+  padding: 1rem 0.8rem 0.8rem 0.8rem;
+  border-right: 2px solid black;
+  position: sticky;
+  top: 5rem;
+}
+#filters-group input {
+  accent-color: var(--primary-accent-color);
+  margin: 0 5px 0 0;
 }
 
 #filters-heading {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+#filters-heading p {
+  font-size: 1.5rem;
 }
 
-#categories-checkbox,
-#price-radio,
-#price-range,
-#rating-radio {
+#clear-btn {
+  font-family: var(--primary-font);
+  border: 2px solid var(--secondary-accent-color);
+  border-radius: 5px;
+  padding: 0.1rem 0.8rem;
+  margin: 0 0 0.35rem 0;
+  letter-spacing: 0.5px;
+}
+#clear-btn:hover {
+  cursor: pointer;
+}
+
+.filter-category {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  margin: 0 0 1rem 0;
+  font-family: var(--secondary-font);
+  font-size: 1.1rem;
+  border-bottom: 1px solid black;
+  margin-bottom: 1rem;
+  padding: 0.3rem 0;
+}
+
+.price-range input {
+  width: 100%;
+}
+
+.filter-name {
+  color: var(--primary-accent-color);
+  font-family: var(--primary-font);
+  font-size: 1.3rem;
 }
