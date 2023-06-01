@@ -1,0 +1,6 @@
+@import url(../../App.css);
+
+footer {
+  background-color: var(--secondary-accent-color);
+  margin-top: auto;
+}

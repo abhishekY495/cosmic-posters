@@ -8,7 +8,7 @@
   --nav-background-color: rgba(222, 222, 222, 0.833);
   --off-white-1: rgb(222, 222, 222);
   --off-white-2: rgb(222, 222, 222, 0.7);
-  --sup-background-color:  rgba(255, 68, 0, 0.119);
+  --sup-background-color: rgba(255, 68, 0, 0.119);
   --primary-accent-color: orangered;
   --secondary-accent-color: rgb(252, 125, 79);
   --navbar-search-border-color: #b7b7b7;
@@ -17,6 +17,12 @@
 body {
   font-family: var(--primary-font);
   background-color: var(--background-color);
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 * {
