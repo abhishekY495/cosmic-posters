@@ -21,22 +21,25 @@ export default function HomePage() {
         <div id="about-and-tagline">
           <p id="about">Welcome to Cosmic Posters</p>
           <p id="tagline">Transform your space into a celestial gallery</p>
-          <Link id="home-explore-link" to="/posters-listing">
-            Explore
+          <Link id="home-buy-now-link" to="/posters-listing">
+            Buy Now
           </Link>
         </div>
         <div id="categories">
           <p id="heading">Featured Categories</p>
           <div id="category-row">
-            {categoryInfo.map(({ name, description }, index) => {
+            {categoryInfo.map(({ name, description, imageLink }, index) => {
               return (
                 <div
                   key={index}
                   className="category"
                   onClick={() => visitCategory(name.toLowerCase())}
                 >
-                  <p className="category-name">{name}</p>
-                  <p className="category-description">{description}</p>
+                  <img className="category-image" src={imageLink} alt={name} />
+                  <div className="category-info">
+                    <p className="category-name">{name}</p>
+                    <p className="category-description">{description}</p>
+                  </div>
                 </div>
               );
             })}
