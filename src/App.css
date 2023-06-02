@@ -12,6 +12,8 @@
   --primary-accent-color: orangered;
   --secondary-accent-color: rgb(252, 125, 79);
   --navbar-search-border-color: #b7b7b7;
+  --buy-now-background-color: rgb(1, 134, 1);
+  --buy-now-box-shadow-color: rgb(1, 167, 1);
 }
 
 body {
