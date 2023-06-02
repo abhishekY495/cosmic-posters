@@ -42,27 +42,53 @@ export default function Poster() {
 
   return (
     <div id="poster">
-      <img id="poster-image" src={poster?.image} alt={poster?.name} />
+      <div id="poster-image">
+        <img src={poster?.image} alt={poster?.name} />
+      </div>
       <div id="poster-info">
         <h2 id="poster-name">{poster?.name}</h2>
-        <p id="poster-rating">{poster?.rating}</p>
+        <p id="poster-rating">
+          <img
+            className="star-icon"
+            src="https://img.icons8.com/?size=22&id=8ggStxqyboK5&format=svg"
+            alt="star"
+          />
+          {poster?.rating}
+        </p>
         <p id="poster-price">₹{poster?.price}</p>
-        <p id="poster-description">{poster?.description}</p>
         {cart.find(({ id }) => id === poster.id) ? (
-          <button onClick={goToCartBtnHandler}>Go to Cart</button>
+          <button
+            className="poster-add-to-cart-btn poster-incart-btn"
+            onClick={goToCartBtnHandler}
+          >
+            Go to Cart
+          </button>
         ) : (
-          <button onClick={() => addToCartBtnHandler(poster)}>
+          <button
+            className="poster-add-to-cart-btn"
+            onClick={() => addToCartBtnHandler(poster)}
+          >
             Add to Cart
           </button>
         )}
+        <p id="poster-description">
+          <span>Description: </span>
+          {poster?.description}
+        </p>
         {wishlist.find(({ id }) => id === poster.id) ? (
-          <button onClick={() => removeFromWishlistBtnHandler(poster.id)}>
-            Remove from Wishlist
-          </button>
+          <img
+            id="poster-wishlist-icon"
+            onClick={() => removeFromWishlistBtnHandler(id)}
+            src="https://img.icons8.com/?size=22&id=V4c6yYlvXtzy&format=svg"
+            alt="red-heart"
+          />
         ) : (
-          <button onClick={() => addToWishlistBtnHandler(poster)}>
-            Add to Wishlist
-          </button>
+          <img
+            id="poster-wishlist-icon"
+            onClick={() => addToWishlistBtnHandler(poster)}
+            src="https://img.icons8.com/?size=22&id=4yauMM-kbvJ-&format=svg"
+            alt="heart"
+          />
         )}
       </div>
     </div>

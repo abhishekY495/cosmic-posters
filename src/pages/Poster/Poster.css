@@ -1,15 +1,86 @@
+@import url(../../App.css);
+
 #poster {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: flex-end;
-  gap: 1rem;
-  width: 500px;
-  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin: 0.8rem auto;
 }
 
 #poster-image {
+  flex-basis: 280px;
+}
+
+#poster-image img {
   width: 100%;
-  height: 400px;
+  height: 450px;
   object-fit: cover;
-  object-position: top center;
+}
+
+#poster-info {
+  flex-basis: 300px;
+  position: relative;
+}
+
+#poster-rating {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.1rem;
+  position: absolute;
+  bottom: 0.3rem;
+  left: -4rem;
+  font-family: var(--secondary-font);
+  background-color: var(--off-white-2);
+  padding: 0.1rem 0.8rem 0.1rem 0.4rem;
+}
+
+#poster-wishlist-icon {
+  position: absolute;
+  top: 0;
+  left: -2.5rem;
+  padding: 0.2rem;
+  width: 1.5rem;
+}
+#poster-wishlist-icon:hover {
+  cursor: pointer;
+}
+
+#poster-name {
+  font-size: 2.5rem;
+  line-height: 2.8rem;
+}
+
+#poster-price {
+  font-family: var(--secondary-font);
+  font-size: 1.3rem;
+  padding: 0.8rem 0;
+}
+
+.poster-add-to-cart-btn {
+  width: 60%;
+  font-family: var(--secondary-font);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.3rem;
+  background-color: var(--off-white-1);
+  margin: 0 0 0.5rem 0 ;
+}
+.poster-add-to-cart-btn:hover {
+  cursor: pointer;
+  background-color: var(--secondary-accent-color);
+}
+.poster-incart-btn {
+  background-color: var(--secondary-accent-color);
+}
+
+#poster-description {
+  font-family: var(--description-font);
+  font-size: 1.2rem;
+}
+
+#poster-description span {
+  font-family: var(--primary-font);
+  font-size: 1.5rem;
+  color: var(--secondary-accent-color);
 }
