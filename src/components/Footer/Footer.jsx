@@ -8,15 +8,15 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer class="social-links">
+    <footer className="social-links">
       <Link to="https://github.com/abhishekY495" target="_blank">
-        <img class="social-icons" src={githubIcon} alt="github" />
+        <img className="social-icons" src={githubIcon} alt="github" />
       </Link>
       <Link to="https://twitter.com/abhishekY495" target="_blank">
-        <img class="social-icons" src={twitterIcon} alt="twitter" />
+        <img className="social-icons" src={twitterIcon} alt="twitter" />
       </Link>
       <Link to="https://www.linkedin.com/in/abhishekY495" target="_blank">
-        <img class="social-icons" src={linkedinIcon} alt="linkedin" />
+        <img className="social-icons" src={linkedinIcon} alt="linkedin" />
       </Link>
     </footer>
   );
