@@ -1,6 +1,15 @@
 @import url(../../App.css);
 
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;  
   background-color: var(--secondary-accent-color);
   margin-top: auto;
+  padding: 0.6rem 0 0.3rem 0;
+}
+
+.social-icons {
+  width: 1.6rem;
 }
