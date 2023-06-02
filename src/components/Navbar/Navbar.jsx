@@ -24,7 +24,8 @@ export default function Navbar() {
           <p>
             Cosmic{" "}
             <img
-              src="https://cdn-icons-png.flaticon.com/16/1453/1453992.png"
+              id="poster-icon"
+              src="https://cdn-icons-png.flaticon.com/64/1453/1453992.png"
               alt="poster"
             />
           </p>
@@ -32,6 +33,9 @@ export default function Navbar() {
         <SearchBar />
       </div>
       <div id="nav-links-group">
+        <Link className="nav-links nav-explore-link" to="/posters-listing">
+          Explore
+        </Link>
         <Link className="nav-links nav-wishlist-link" to="wishlist">
           <img
             src="https://img.icons8.com/?size=22&id=59805&format=svg"

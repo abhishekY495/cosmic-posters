@@ -15,19 +15,37 @@ nav {
   z-index: 1;
 }
 
+#poster-icon {
+  width: 1.5rem;
+}
+
 .nav-links {
   position: relative;
 }
 
 #nav-home-search-group {
   display: flex;
+  align-items: center;
   gap: 1rem;
+}
+
+.nav-explore-link {
+  color: white;
+  background-color: var(--primary-accent-color);
+  padding: 0.2rem 1rem;
+  border-radius: 3px;
+  box-shadow: 2px 2px var(--secondary-accent-color);
+  font-size: 1rem;
+}
+.nav-explore-link:active {
+  box-shadow: none;
+  transform: translateY(1px);
 }
 
 #nav-links-group {
   display: flex;
-  gap: 2rem;
-  padding: 10px 0 0 0;
+  align-items: center;
+  gap: 1.8rem;
 }
 
 sup {
