@@ -10,6 +10,7 @@ export default function AddressListing({ checkout }) {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setSelectedAddress(null);
   };
 
   const updateAddressHandler = (address) => {
