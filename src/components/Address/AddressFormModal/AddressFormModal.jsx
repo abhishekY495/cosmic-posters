@@ -1,54 +1,98 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { faker } from "@faker-js/faker";
 
-import { states } from "../../../data/stateData";
 import { AddressContext } from "../../../contexts/AddressContext";
 import "./AddressFormModal.css";
 
-export default function AddressFormModal({ openModal, setOpenModal }) {
+export default function AddressFormModal({ address, onClose }) {
   const { dispatch } = useContext(AddressContext);
+  const [name, setName] = useState(address ? address.name : "");
+  const [mobile, setMobile] = useState(address ? address.mobile : "");
+  const [street, setStreet] = useState(address ? address.street : "");
+  const [pincode, setPincode] = useState(address ? address.pincode : "");
+  const [city, setCity] = useState(address ? address.city : "");
+  const [state, setState] = useState(address ? address.state : "");
 
-  if (!openModal) return null;
-
-  const addAddressHandler = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const address = Object.fromEntries(formData);
-    dispatch({
-      type: "ADD_ADDRESS",
-      payload: { ...address, id: faker.string.uuid() },
-    });
-    setOpenModal(false);
+  const saveAddressHandler = () => {
+    if (address) {
+      dispatch({
+        type: "UPDATE_ADDRESS",
+        payload: {
+          ...address,
+          name,
+          mobile,
+          street,
+          pincode,
+          city,
+          state,
+        },
+      });
+    } else {
+      const newAddress = {
+        id: faker.string.uuid(),
+        name,
+        mobile,
+        street,
+        pincode,
+        city,
+        state,
+      };
+      dispatch({ type: "ADD_ADDRESS", payload: newAddress });
+    }
+    onClose();
   };
 
   return (
-    <div onClick={() => setOpenModal(false)} id="overlay">
+    <div id="overlay" onClick={onClose}>
       <form
         id="address-form-modal"
-        onSubmit={addAddressHandler}
+        onSubmit={saveAddressHandler}
         onClick={(e) => e.stopPropagation()}
       >
-        <input type="text" name="name" placeholder="Name" required />
-        <input type="tel" name="mobile" placeholder="Mobile no." required />
+        <p>{address ? "Edit Address" : "Add Address"}</p>
         <input
-          type="text"
-          name="address"
-          placeholder="Room no, Area, Colony"
           required
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
-        <input type="number" name="pincode" placeholder="Pincode" required />
-        <input type="text" name="city" placeholder="City" required />
-        <select name="state">
-          {states.map((state) => (
-            <option key={state} value={state}>
-              {state}
-            </option>
-          ))}
-        </select>
-        <div>
-          <button type="submit">Save</button>
-          <button onClick={() => setOpenModal(false)}>Cancel</button>
-        </div>
+        <input
+          required
+          type="text"
+          placeholder="Mobile No."
+          value={mobile}
+          onChange={(e) => setMobile(e.target.value)}
+        />
+        <input
+          required
+          type="text"
+          placeholder="Street"
+          value={street}
+          onChange={(e) => setStreet(e.target.value)}
+        />
+        <input
+          required
+          type="text"
+          placeholder="Pincode"
+          value={pincode}
+          onChange={(e) => setPincode(e.target.value)}
+        />
+        <input
+          required
+          type="text"
+          placeholder="City"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+        <input
+          required
+          type="text"
+          placeholder="State"
+          value={state}
+          onChange={(e) => setState(e.target.value)}
+        />
+        <button type="submit">{address ? "Save" : "Add"}</button>
       </form>
     </div>
   );
