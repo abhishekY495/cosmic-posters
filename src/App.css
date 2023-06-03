@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Prata&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400&display=swap");
 
 :root {
   --primary-font: "DM Serif Display", sans-serif;
@@ -16,6 +16,7 @@
   --navbar-search-border-color: #b7b7b7;
   --buy-now-background-color: rgb(1, 134, 1);
   --buy-now-box-shadow-color: rgb(1, 167, 1);
+  --footer-background-color: rgb(209, 209, 209);
 }
 
 body {
