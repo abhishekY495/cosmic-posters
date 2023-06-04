@@ -42,6 +42,15 @@ export default function AddressFormModal({ address, onClose }) {
     onClose();
   };
 
+  const addDummyData = () => {
+    setName(faker.person.fullName());
+    setStreet(faker.location.streetAddress(true));
+    setMobile(faker.phone.number("##########"));
+    setCity(faker.location.city());
+    setPincode(faker.location.zipCode("######"));
+    setState(faker.location.state());
+  };
+
   return (
     <div id="overlay" onClick={onClose}>
       <form
@@ -98,7 +107,7 @@ export default function AddressFormModal({ address, onClose }) {
           <button type="submit">{address ? "Save" : "Add"}</button>
           <button onClick={onClose}>Cancel</button>
         </div>
-        <button id="dummy-data-btn" type="button">
+        <button id="dummy-data-btn" type="button" onClick={addDummyData}>
           Add Dummy data
         </button>
       </form>
