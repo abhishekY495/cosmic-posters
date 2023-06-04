@@ -1,11 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import AddressListing from "../../components/Address/AddressListing/AddressListing";
+import AddressFormModal from "../../components/Address/AddressFormModal/AddressFormModal";
 import "./Profile.css";
 
 export default function Profile() {
   const { user, logoutUser } = useContext(AuthContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState(null);
 
   const logoutBtnHandler = async () => {
     try {
@@ -15,14 +18,45 @@ export default function Profile() {
     }
   };
 
+  const handleAddAddress = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedAddress(null);
+  };
+
   return (
     <>
+      {isModalOpen && (
+        <AddressFormModal address={selectedAddress} onClose={closeModal} />
+      )}
       <div id="profile">
-        <p>{user && user.displayName}</p>
-        <p>{user && user.email}</p>
-        <button onClick={logoutBtnHandler}>Logout</button>
+        <p id="heading">Profile</p>
+        <p id="profile-name">
+          <span>Name: </span>
+          {user && user.displayName}
+        </p>
+        <p id="profile-email">
+          <span>Email: </span>
+          {user && user.email}
+        </p>
+        <div id="settings-btn-container">
+          <button id="add-address-btn" onClick={handleAddAddress}>
+            Add Address
+          </button>
+          <button id="logout-btn" onClick={logoutBtnHandler}>
+            Logout
+          </button>
+        </div>
       </div>
-      <AddressListing />
+      <AddressListing
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        selectedAddress={selectedAddress}
+        setSelectedAddress={setSelectedAddress}
+      />
     </>
   );
 }

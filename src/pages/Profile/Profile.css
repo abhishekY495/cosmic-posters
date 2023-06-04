@@ -1,8 +1,52 @@
 #profile {
   display: flex;
   flex-direction: column;
+  gap: 0.2rem;
   width: 500px;
-  margin: 0 auto;
-  padding: 1rem;
-  border: 1px solid #eee;
+  margin: 2rem auto 1.5rem auto;
+  padding: 0.5rem 1rem 1rem 1rem;
+  border-bottom: 1px solid black;
+}
+
+#profile #heading {
+  font-size: 1.5rem;
+}
+
+#profile-name,
+#profile-email {
+  font-family: var(--secondary-font);
+}
+
+#profile-name span,
+#profile-email span {
+  font-family: var(--primary-font);
+}
+
+#settings-btn-container {
+  display: flex;
+  gap: 1rem;
+}
+
+#add-address-btn {
+  width: 150px;
+}
+#logout-btn {
+  width: 100px;
+}
+#add-address-btn,
+#logout-btn {
+  padding: 0.2rem 0.8rem;
+  font-family: var(--primary-font);
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: var(--primary-accent-color);
+  color: white;
+  border: 1px solid black;
+  box-shadow: 1.2px 1.2px black;
+  transition: all 0.1s;
+}
+#add-address-btn:hover,
+#logout-btn:hover {
+  cursor: pointer;
+  box-shadow: none;
 }
