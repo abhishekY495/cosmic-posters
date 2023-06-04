@@ -24,60 +24,89 @@ export default function Cart() {
   };
 
   return (
-    <div id="cart-checkout-container">
-      <div id="cart-posters">
-        {cart.length === 0 && <p>Cart is Empty...</p>}
-        {cart.map((poster) => {
-          const { id, name, price, quantity } = poster;
-          return (
-            <div key={id} className="cart-poster">
-              <div className="cart-name-price">
-                <p>{name}</p>
-                <p>₹{price}</p>
-              </div>
-              <div className="cart-btn-group">
-                <button
-                  onClick={(e) => cartQuantityHandler(e, poster)}
-                  value="decrease"
-                >
-                  -
-                </button>
-                <p>{quantity}</p>
-                <button
-                  onClick={(e) => cartQuantityHandler(e, poster)}
-                  value="increase"
-                >
-                  +
-                </button>
-              </div>
-              <button onClick={() => removeFromCartBtnHandler(id)}>
-                Remove From Cart
-              </button>
-            </div>
-          );
-        })}
-      </div>
-      <div id="checkout-container">
-        <div id="chekout-posters">
+    <>
+      {cart.length === 0 ? (
+        <p className="cart-message-1">Cart is Empty...</p>
+      ) : (
+        <p className="cart-message-2">
+          {cart.length > 1 ? `${cart.length} Posters` : `${cart.length} Poster`}
+        </p>
+      )}
+      <div id="cart-checkout-container">
+        <div id="cart-posters-container">
           {cart.map((poster) => {
+            const { id, image, name, price, quantity } = poster;
             return (
-              <p key={poster.id}>
-                {poster.name} - {poster.quantity}X
-              </p>
+              <div key={id} className="cart-poster">
+                <Link
+                  className="cart-poster-image-container"
+                  to={`/poster/${id}`}
+                >
+                  <img src={image} className="cart-poster-image" alt={name} />
+                </Link>
+                <div className="cart-poster-info">
+                  <Link to={`/poster/${id}`}>
+                    <p className="cart-poster-name">{name}</p>
+                  </Link>
+                  <p className="cart-poster-price">₹{price}</p>
+                  <div className="quantity-btn-group">
+                    <button
+                      className="decrease-btn"
+                      onClick={(e) => cartQuantityHandler(e, poster)}
+                      value="decrease"
+                    >
+                      -
+                    </button>
+                    <p>{quantity}</p>
+                    <button
+                      className="increase-btn"
+                      onClick={(e) => cartQuantityHandler(e, poster)}
+                      value="increase"
+                    >
+                      +
+                    </button>
+                  </div>
+                  <button
+                    className="remove-cart-btn"
+                    onClick={() => removeFromCartBtnHandler(id)}
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
             );
           })}
         </div>
-        {total > 0 && (
-          <p>
-            Total - <b>{total}</b>
-          </p>
-        )}
-        {cart.length > 0 && (
-          <Link to="/checkout">
-            <p id="checkout-link">Checkout</p>
-          </Link>
-        )}
+        <div id="checkout-container">
+          <div>
+            {cart.map((poster) => {
+              return (
+                <div key={poster.id} className="checkout-posters">
+                  <p className="name-quantity">
+                    {poster.name} ({poster.quantity})
+                  </p>
+                  <p className="price-quantity">
+                    {(poster.quantity * poster.price).toFixed(2)}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+          {total > 0 && (
+            <div id="total-price">
+              <p id="heading">Total</p>
+              <p id="price">
+                ₹<b>{total}</b>
+              </p>
+            </div>
+          )}
+          {cart.length > 0 && (
+            <Link to="/checkout">
+              <p id="checkout-link">Checkout</p>
+            </Link>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
