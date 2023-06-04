@@ -1,0 +1,47 @@
+#addresses-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto 4rem auto;
+}
+
+#addresses-container-heading {
+  font-size: 1.5rem;
+}
+
+.address {
+  border-bottom: 1px solid black;
+  padding: 0.8rem;
+}
+
+.address p {
+  font-family: var(--secondary-font);
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.address .name {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.btn-container {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.btn-container button {
+  padding: 0.2rem 0.8rem;
+  font-family: var(--primary-font);
+  letter-spacing: 0.5px;
+  background-color: var(--off-white-1);
+  border: 1px solid black;
+  box-shadow: 1.2px 1.2px var(--primary-accent-color);
+  transition: all 0.1s;
+}
+
+.btn-container button:hover {
+  cursor: pointer;
+  background-color: var(--off-white-2);
+  box-shadow: none;
+}

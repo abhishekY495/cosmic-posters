@@ -7,11 +7,11 @@ import "./AddressFormModal.css";
 export default function AddressFormModal({ address, onClose }) {
   const { dispatch } = useContext(AddressContext);
   const [name, setName] = useState(address ? address.name : "");
-  const [mobile, setMobile] = useState(address ? address.mobile : "");
   const [street, setStreet] = useState(address ? address.street : "");
-  const [pincode, setPincode] = useState(address ? address.pincode : "");
   const [city, setCity] = useState(address ? address.city : "");
+  const [pincode, setPincode] = useState(address ? address.pincode : "");
   const [state, setState] = useState(address ? address.state : "");
+  const [mobile, setMobile] = useState(address ? address.mobile : "");
 
   const saveAddressHandler = () => {
     if (address) {
@@ -49,20 +49,15 @@ export default function AddressFormModal({ address, onClose }) {
         onSubmit={saveAddressHandler}
         onClick={(e) => e.stopPropagation()}
       >
-        <p>{address ? "Edit Address" : "Add Address"}</p>
+        <p id="address-form-modal-heading">
+          {address ? "Edit Address" : "Add Address"}
+        </p>
         <input
           required
           type="text"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          required
-          type="text"
-          placeholder="Mobile No."
-          value={mobile}
-          onChange={(e) => setMobile(e.target.value)}
         />
         <input
           required
@@ -74,16 +69,16 @@ export default function AddressFormModal({ address, onClose }) {
         <input
           required
           type="text"
-          placeholder="Pincode"
-          value={pincode}
-          onChange={(e) => setPincode(e.target.value)}
+          placeholder="City"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
         />
         <input
           required
           type="text"
-          placeholder="City"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
+          placeholder="Pincode"
+          value={pincode}
+          onChange={(e) => setPincode(e.target.value)}
         />
         <input
           required
@@ -92,7 +87,20 @@ export default function AddressFormModal({ address, onClose }) {
           value={state}
           onChange={(e) => setState(e.target.value)}
         />
-        <button type="submit">{address ? "Save" : "Add"}</button>
+        <input
+          required
+          type="text"
+          placeholder="Mobile No."
+          value={mobile}
+          onChange={(e) => setMobile(e.target.value)}
+        />
+        <div id="submit-cancel-btns">
+          <button type="submit">{address ? "Save" : "Add"}</button>
+          <button onClick={onClose}>Cancel</button>
+        </div>
+        <button id="dummy-data-btn" type="button">
+          Add Dummy data
+        </button>
       </form>
     </div>
   );

@@ -1,12 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
-import AddressFormModel from "../AddressFormModal/AddressFormModal";
+import AddressFormModal from "../AddressFormModal/AddressFormModal";
 import { AddressContext } from "../../../contexts/AddressContext";
+import "./AddressListing.css";
 
-export default function AddressListing({ checkout }) {
+export default function AddressListing({
+  checkout,
+  isModalOpen,
+  setIsModalOpen,
+  selectedAddress,
+  setSelectedAddress,
+}) {
   const { state, dispatch } = useContext(AddressContext);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedAddress, setSelectedAddress] = useState(null);
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -22,37 +27,39 @@ export default function AddressListing({ checkout }) {
     dispatch({ type: "DELETE_ADDRESS", payload: id });
   };
 
-  const handleAddAddress = () => {
-    setIsModalOpen(true);
-  };
-
   return (
     <>
       {isModalOpen && (
-        <AddressFormModel address={selectedAddress} onClose={closeModal} />
+        <AddressFormModal address={selectedAddress} onClose={closeModal} />
       )}
-      <div>
-        <button onClick={handleAddAddress}>Add Address</button>
+      <div id="addresses-container">
+        <p id="addresses-container-heading">
+          Your Addresses{" "}
+          <span id="address-count">({state.addresses.length})</span>
+        </p>
         {state.addresses.map((address) => {
           const { id, name, mobile, street, pincode, city, state } = address;
           return (
-            <div key={id}>
-              <p>Name - {name}</p>
-              <p>Mobile - {mobile}</p>
-              <p>Street - {street}</p>
-              <p>Pincode - {pincode}</p>
-              <p>City - {city}</p>
-              <p>State - {state}</p>
-              {!checkout && (
-                <>
-                  <button onClick={() => updateAddressHandler(address)}>
-                    Edit
-                  </button>
-                  <button onClick={() => deleteAddressHandler(id)}>
-                    Delete
-                  </button>
-                </>
-              )}
+            <div key={id} className="address">
+              <p className="name">{name}</p>
+              <p className="street">{street}</p>
+              <p className="city-pincode">
+                {city}, {pincode}
+              </p>
+              <p className="state">{state}</p>
+              <p className="mobile">Mobile: {mobile}</p>
+              <div className="btn-container">
+                {!checkout && (
+                  <>
+                    <button onClick={() => updateAddressHandler(address)}>
+                      Edit
+                    </button>
+                    <button onClick={() => deleteAddressHandler(id)}>
+                      Delete
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
           );
         })}

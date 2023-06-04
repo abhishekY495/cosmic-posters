@@ -17,6 +17,7 @@
   --buy-now-background-color: rgb(1, 134, 1);
   --buy-now-box-shadow-color: rgb(1, 167, 1);
   --footer-background-color: rgb(209, 209, 209);
+  --overlay-background-color: rgba(209, 209, 209, 0.4);
 }
 
 body {
