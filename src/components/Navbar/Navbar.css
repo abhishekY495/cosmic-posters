@@ -6,13 +6,18 @@ nav {
   align-items: center;
   gap: 5rem;
   background-color: var(--nav-background-color);
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   padding: 0.8rem 1rem;
   font-size: 2rem;
   position: sticky;
   top: 0;
   z-index: 1;
+}
+
+#app-name {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 #poster-icon {

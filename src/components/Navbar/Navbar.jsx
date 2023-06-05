@@ -21,7 +21,7 @@ export default function Navbar() {
     <nav>
       <div id="nav-home-search-group">
         <Link className="nav-links nav-home-link" to="/">
-          <p>
+          <p id="app-name">
             Cosmic{" "}
             <img
               id="poster-icon"
