@@ -1,0 +1,21 @@
+#placed-order-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto 4rem auto;
+}
+
+#placed-order-container-heading {
+  font-size: 1.5rem;
+  display: flex;
+}
+#placed-order-container-heading:hover {
+  cursor: pointer;
+}
+#placed-order-container-heading p:hover {
+  text-decoration: underline 1px var(--primary-accent-color);
+}
+#placed-order-posters {
+  padding: 0.5rem 0.8rem;
+}
+

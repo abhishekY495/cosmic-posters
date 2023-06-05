@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import AddressListing from "../../components/Address/AddressListing/AddressListing";
 import AddressFormModal from "../../components/Address/AddressFormModal/AddressFormModal";
+import PlacedOrderListing from "../../components/PlacedOrderListing/PlacedOrderListing";
 import "./Profile.css";
 
 export default function Profile() {
@@ -57,6 +58,7 @@ export default function Profile() {
         selectedAddress={selectedAddress}
         setSelectedAddress={setSelectedAddress}
       />
+      <PlacedOrderListing />
     </>
   );
 }
