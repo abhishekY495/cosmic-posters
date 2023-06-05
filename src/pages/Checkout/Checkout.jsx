@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 
 import { CartContext } from "../../contexts/CartContext";
 import { AddressContext } from "../../contexts/AddressContext";
+import AddressFormModal from "../../components/Address/AddressFormModal/AddressFormModal";
 import "./Checkout.css";
 
 export default function Checkout() {
@@ -13,6 +14,7 @@ export default function Checkout() {
   } = useContext(AddressContext);
   const [selectedAddress, setSelectedAddress] = useState({});
   const [disabledPlaceOrderBtn, setDisabledPlaceOrderBtn] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const total = cart
     .reduce((acc, curr) => (acc += curr.price * curr.quantity), 0)
@@ -23,14 +25,28 @@ export default function Checkout() {
     setDisabledPlaceOrderBtn(false);
   };
 
+  const addAddressHandler = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
+      {isModalOpen && <AddressFormModal onClose={closeModal} />}
       {cart.length === 0 ? (
-        <p id="checkout-empty-message">No items to checkout...</p>
+        <p id="checkout-empty-message">Add Posters in Cart to Checkout...</p>
       ) : (
         <>
           <p id="checkout-heading">Checkout ({cart.length})</p>
           <div id="address-checkout-container">
+            {addresses.length === 0 && (
+              <button id="checkout-add-address" onClick={addAddressHandler}>
+                Add Address to Place Order
+              </button>
+            )}
             <div id="address-container">
               {addresses.map((address) => {
                 const { id, name, street, city, pincode, state, mobile } =
@@ -55,7 +71,7 @@ export default function Checkout() {
                 );
               })}
             </div>
-            <div id="checkout-container">
+            <div id="checkout-total-container">
               <div>
                 {cart.map((poster) => {
                   return (
@@ -71,7 +87,7 @@ export default function Checkout() {
                 })}
               </div>
               {total > 0 && (
-                <div id="checkout-total-container">
+                <div id="total-container">
                   <div id="delivery-charge">
                     <p>Delivery charge</p>
                     <p>Free</p>
