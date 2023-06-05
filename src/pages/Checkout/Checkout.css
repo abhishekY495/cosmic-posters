@@ -1,8 +1,106 @@
-#checkout {
+#checkout-heading {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#checkout-empty-message {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+#address-checkout-container {
   display: flex;
-  flex-direction: column;
-  width: 500px;
+  justify-content: center;
   margin: 0 auto;
-  padding: 1rem;
-  border: 1px solid #eee;
+  gap: 0.8rem;
+}
+
+#address-container {
+  padding: 0 0.5rem 0 0;
+  height: 60vh;
+  overflow-y: scroll;
+}
+
+.single-address {
+  display: flex;
+  gap: 0.3rem;
+  align-items: flex-start;
+  font-family: var(--secondary-font);
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid black;
+}
+
+.single-address input {
+  margin: 0.4rem 0 0 0;
+}
+
+.address-name {
+  font-family: var(--primary-font);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/*  */
+
+#checkout-container {
+  width: 280px;
+}
+
+.checkout-container-posters {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+#checkout-total-container {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 0.5rem 0;
+}
+
+#checkout-total-price,
+#delivery-charge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+#delivery-address {
+  font-family: var(--secondary-font);
+  font-size: 0.85rem;
+}
+
+#select-address-message {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+}
+
+#place-order-btn,
+#place-order-btn-disabled {
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  text-align: center;
+  background-color: var(--primary-accent-color);
+  padding: 0.3rem 0;
+  color: white;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 3px 3px var(--secondary-accent-color);
+  margin: 0.3rem 0;
+}
+#place-order-btn-disabled {
+  opacity: 0.5;
+}
+#place-order-btn:hover {
+  cursor: pointer;
+}
+#place-order-btn-disabled:hover {
+  cursor: not-allowed;
 }
