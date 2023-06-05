@@ -113,7 +113,9 @@ export default function Checkout() {
                   </p>
                 </div>
               ) : (
-                <p id="select-address-message">Select an Address</p>
+                addresses.length > 0 && (
+                  <p id="select-address-message">Select an Address</p>
+                )
               )}
               <button
                 id={`place-order-btn${

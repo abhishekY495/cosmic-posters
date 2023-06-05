@@ -117,12 +117,13 @@
   box-shadow: 3px 3px var(--secondary-accent-color);
   margin: 0.3rem 0;
 }
-#place-order-btn-disabled {
-  opacity: 0.5;
-  z-index: -1;
-}
 #place-order-btn:hover {
   cursor: pointer;
+}
+
+#place-order-btn-disabled {
+  background-color: var(--secondary-accent-color);
+  box-shadow: 3px 3px var(--primary-accent-color);
 }
 #place-order-btn-disabled:hover {
   cursor: not-allowed;
