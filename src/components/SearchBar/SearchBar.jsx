@@ -5,7 +5,10 @@ import { DataContext } from "../../contexts/DataContext";
 import "./SearchBar.css";
 
 export default function SearchBar() {
-  const { dispatch } = useContext(DataContext);
+  const {
+    state: { searchValue },
+    dispatch,
+  } = useContext(DataContext);
   const navigate = useNavigate();
 
   const onChangeHandler = (e) => {
@@ -18,6 +21,7 @@ export default function SearchBar() {
       id="navbar-search"
       type="text"
       placeholder="Search"
+      value={searchValue}
       onChange={onChangeHandler}
     />
   );
