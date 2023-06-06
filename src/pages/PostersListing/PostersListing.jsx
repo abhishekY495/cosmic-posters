@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
@@ -10,7 +10,7 @@ import Filters from "../../components/Filters/Filters";
 import "./PostersListing.css";
 
 export default function PostersListing() {
-  const { postersData } = useContext(DataContext);
+  const { state, postersData, dispatch } = useContext(DataContext);
   const {
     state: { cart },
     dispatch: cartDispatch,
@@ -49,63 +49,90 @@ export default function PostersListing() {
     }
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch({ type: "DATA_LOADED" });
+    }, 2500);
+  }, []);
+
   return (
     <>
       <div id="posters-list-container">
         <Filters />
         <div id="posters-list">
-          {postersData.map((poster) => {
-            const { id, name, image, price, rating } = poster;
-            return (
-              <div className="poster" key={id}>
-                <Link to={`/poster/${id}`}>
-                  <img className="poster-image" src={image} alt={name} />
-                </Link>
-                <div className="poster-info">
-                  <p className="poster-name">{name}</p>
-                  <p className="poster-price">₹{price}</p>
-                  <p className="poster-rating">
-                    <img
-                      className="star-icon"
-                      src="https://img.icons8.com/?size=22&id=8ggStxqyboK5&format=svg"
-                      alt="star"
-                    />
-                    {rating}
-                  </p>
-                  {cart.find((poster) => poster.id === id) ? (
-                    <button
-                      className="cart-btn incart-btn"
-                      onClick={goToCartBtnHandler}
-                    >
-                      Go to Cart
-                    </button>
-                  ) : (
-                    <button
-                      className="cart-btn"
-                      onClick={() => addToCartBtnHandler(poster)}
-                    >
-                      Add to Cart
-                    </button>
-                  )}
-                  {wishlist.find((poster) => poster.id === id) ? (
-                    <img
-                      className="wishlist-icon"
-                      onClick={() => removeFromWishlistBtnHandler(id)}
-                      src="https://img.icons8.com/?size=22&id=V4c6yYlvXtzy&format=svg"
-                      alt="red-heart"
-                    />
-                  ) : (
-                    <img
-                      className="wishlist-icon"
-                      onClick={() => addToWishlistBtnHandler(poster)}
-                      src="https://img.icons8.com/?size=22&id=4yauMM-kbvJ-&format=svg"
-                      alt="heart"
-                    />
-                  )}
+          {postersData.length === 0 && (
+            <div id="no-posters-container">
+              <p>No Posters found</p>
+              <img
+                id="no-posters-image"
+                src="https://raw.githubusercontent.com/abhishekY495/asteroid-alert/main/assets/space-dog.webp"
+                alt="dog floating in a spacecraft"
+              />
+            </div>
+          )}
+          {state.isLoading ? (
+            <div id="loading-container">
+              <p>Getting latest Posters</p>
+              <img
+                id="loading-image"
+                src="https://res.cloudinary.com/dfuirkjxj/image/upload/v1686062758/gifs/loop-galaxies_hsmhis.webp"
+                alt="looping galaxies"
+              />
+            </div>
+          ) : (
+            postersData.map((poster) => {
+              const { id, name, image, price, rating } = poster;
+              return (
+                <div className="poster" key={id}>
+                  <Link to={`/poster/${id}`}>
+                    <img className="poster-image" src={image} alt={name} />
+                  </Link>
+                  <div className="poster-info">
+                    <p className="poster-name">{name}</p>
+                    <p className="poster-price">₹{price}</p>
+                    <p className="poster-rating">
+                      <img
+                        className="star-icon"
+                        src="https://img.icons8.com/?size=22&id=8ggStxqyboK5&format=svg"
+                        alt="star"
+                      />
+                      {rating}
+                    </p>
+                    {cart.find((poster) => poster.id === id) ? (
+                      <button
+                        className="cart-btn incart-btn"
+                        onClick={goToCartBtnHandler}
+                      >
+                        Go to Cart
+                      </button>
+                    ) : (
+                      <button
+                        className="cart-btn"
+                        onClick={() => addToCartBtnHandler(poster)}
+                      >
+                        Add to Cart
+                      </button>
+                    )}
+                    {wishlist.find((poster) => poster.id === id) ? (
+                      <img
+                        className="wishlist-icon"
+                        onClick={() => removeFromWishlistBtnHandler(id)}
+                        src="https://img.icons8.com/?size=22&id=V4c6yYlvXtzy&format=svg"
+                        alt="red-heart"
+                      />
+                    ) : (
+                      <img
+                        className="wishlist-icon"
+                        onClick={() => addToWishlistBtnHandler(poster)}
+                        src="https://img.icons8.com/?size=22&id=4yauMM-kbvJ-&format=svg"
+                        alt="heart"
+                      />
+                    )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
         </div>
       </div>
     </>

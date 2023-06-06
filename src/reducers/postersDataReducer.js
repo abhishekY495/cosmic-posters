@@ -7,12 +7,19 @@ export const initState = {
   sortPrice: "",
   priceRange: 500,
   filterRating: null,
+  isLoading: true,
 };
 
 const initStateCopy = { ...initState };
 
 export const postersReducer = (state, action) => {
   switch (action.type) {
+    case "DATA_LOADED": {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }
     case "SEARCH_POSTER": {
       const searchValue = action.payload;
       return { ...state, searchValue };
@@ -54,7 +61,7 @@ export const postersReducer = (state, action) => {
     }
     case "CLEAR_ALL_FILTERS": {
       return {
-        ...initStateCopy,
+        ...initStateCopy, isLoading: false
       };
     }
     default:

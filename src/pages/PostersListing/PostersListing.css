@@ -1,4 +1,20 @@
-@import url(../../App.css);
+#loading-container,
+#no-posters-container {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+#loading-container p,
+#no-posters-container p {
+  margin: 0 0 0.5rem 0;
+}
+
+#no-posters-image,
+#loading-image {
+  width: 250px;
+  border-radius: 3px;
+}
 
 #posters-list-container {
   display: flex;
