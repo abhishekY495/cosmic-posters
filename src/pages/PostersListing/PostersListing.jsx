@@ -21,12 +21,20 @@ export default function PostersListing() {
   } = useContext(WishlistContext);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const accountRequiredToast = () => {
+    return toast("Account required", {
+      style: { background: "#333", color: "#fff" },
+      position: "top-center",
+      icon: "🔐",
+    });
+  };
 
   const addToCartBtnHandler = (poster) => {
     if (user) {
       cartDispatch({ type: "ADD_TO_CART", payload: poster });
       toast.success("Added to Cart");
     } else {
+      accountRequiredToast();
       navigate("/login");
     }
   };
@@ -37,6 +45,7 @@ export default function PostersListing() {
       wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: poster });
       toast.success("Added to Wishlist");
     } else {
+      accountRequiredToast();
       navigate("/login");
     }
   };
@@ -45,6 +54,7 @@ export default function PostersListing() {
       wishlistDispatch({ type: "REMOVE_FROM_WISHLIST", payload: id });
       toast.error("Removed from Wishlist");
     } else {
+      accountRequiredToast();
       navigate("/login");
     }
   };
