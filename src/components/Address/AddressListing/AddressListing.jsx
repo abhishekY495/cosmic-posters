@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 
 import AddressFormModal from "../AddressFormModal/AddressFormModal";
 import { AddressContext } from "../../../contexts/AddressContext";
@@ -28,6 +29,7 @@ export default function AddressListing({
 
   const deleteAddressHandler = (id) => {
     dispatch({ type: "DELETE_ADDRESS", payload: id });
+    toast.error("Address Deleted");
   };
 
   return (

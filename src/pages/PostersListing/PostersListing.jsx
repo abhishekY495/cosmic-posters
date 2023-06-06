@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import { DataContext } from "../../contexts/DataContext";
@@ -22,21 +23,30 @@ export default function PostersListing() {
   const navigate = useNavigate();
 
   const addToCartBtnHandler = (poster) => {
-    user
-      ? cartDispatch({ type: "ADD_TO_CART", payload: poster })
-      : navigate("/login");
+    if (user) {
+      cartDispatch({ type: "ADD_TO_CART", payload: poster });
+      toast.success("Added to Cart");
+    } else {
+      navigate("/login");
+    }
   };
   const goToCartBtnHandler = () => navigate("/cart");
 
   const addToWishlistBtnHandler = (poster) => {
-    user
-      ? wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: poster })
-      : navigate("/login");
+    if (user) {
+      wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: poster });
+      toast.success("Added to Wishlist");
+    } else {
+      navigate("/login");
+    }
   };
   const removeFromWishlistBtnHandler = (id) => {
-    user
-      ? wishlistDispatch({ type: "REMOVE_FROM_WISHLIST", payload: id })
-      : navigate("/login");
+    if (user) {
+      wishlistDispatch({ type: "REMOVE_FROM_WISHLIST", payload: id });
+      toast.error("Removed from Wishlist");
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -63,7 +73,10 @@ export default function PostersListing() {
                     {rating}
                   </p>
                   {cart.find((poster) => poster.id === id) ? (
-                    <button className="cart-btn incart-btn" onClick={goToCartBtnHandler}>
+                    <button
+                      className="cart-btn incart-btn"
+                      onClick={goToCartBtnHandler}
+                    >
                       Go to Cart
                     </button>
                   ) : (

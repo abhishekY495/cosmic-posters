@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import { DataContext } from "../../contexts/DataContext";
 import { CartContext } from "../../contexts/CartContext";
@@ -23,21 +24,30 @@ export default function Poster() {
   const poster = postersData.find((poster) => poster.id === id);
 
   const addToCartBtnHandler = (poster) => {
-    user
-      ? cartDispatch({ type: "ADD_TO_CART", payload: poster })
-      : navigate("/login");
+    if (user) {
+      cartDispatch({ type: "ADD_TO_CART", payload: poster });
+      toast.success("Added to Cart");
+    } else {
+      navigate("/login");
+    }
   };
   const goToCartBtnHandler = () => navigate("/cart");
 
   const addToWishlistBtnHandler = () => {
-    user
-      ? wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: poster })
-      : navigate("/login");
+    if (user) {
+      wishlistDispatch({ type: "ADD_TO_WISHLIST", payload: poster });
+      toast.success("Added to Wishlist");
+    } else {
+      navigate("/login");
+    }
   };
   const removeFromWishlistBtnHandler = (id) => {
-    user
-      ? wishlistDispatch({ type: "REMOVE_FROM_WISHLIST", payload: id })
-      : navigate("/login");
+    if (user) {
+      wishlistDispatch({ type: "REMOVE_FROM_WISHLIST", payload: id });
+      toast.error("Removed from Wishlist");
+    } else {
+      navigate("/login");
+    }
   };
 
   return (

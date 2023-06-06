@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { toast } from "react-hot-toast";
 
 import { CartContext } from "../../contexts/CartContext";
 import { Link } from "react-router-dom";
@@ -16,11 +17,26 @@ export default function Cart() {
 
   const cartQuantityHandler = (e, poster) => {
     const value = e.target.value;
-    dispatch({ type: "UPDATE_CART_QUANTITY", payload: { value, poster } });
+    if (value === "decrease") {
+      if (poster.quantity === 1) {
+        toast.error("Cannot be less than 1.");
+      } else {
+        dispatch({ type: "UPDATE_CART_QUANTITY", payload: { value, poster } });
+        toast.success(`-1 ${poster.name}`);
+      }
+    } else if (value === "increase") {
+      if (poster.quantity === 5) {
+        toast.error("Max quantity reached.");
+      } else {
+        dispatch({ type: "UPDATE_CART_QUANTITY", payload: { value, poster } });
+        toast.success(`+1 ${poster.name}`);
+      }
+    }
   };
 
   const removeFromCartBtnHandler = (id) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
+    toast.error("Removed from Cart");
   };
 
   return (

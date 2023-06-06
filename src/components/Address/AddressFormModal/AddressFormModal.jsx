@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { faker } from "@faker-js/faker";
+import { toast } from "react-hot-toast";
 
 import { AddressContext } from "../../../contexts/AddressContext";
 import "./AddressFormModal.css";
@@ -27,6 +28,7 @@ export default function AddressFormModal({ address, onClose }) {
           state,
         },
       });
+      toast.success("Address Updated");
     } else {
       const newAddress = {
         id: faker.string.uuid(),
@@ -38,6 +40,7 @@ export default function AddressFormModal({ address, onClose }) {
         state,
       };
       dispatch({ type: "ADD_ADDRESS", payload: newAddress });
+      toast.success("Address Added");
     }
     onClose();
   };
@@ -103,13 +106,15 @@ export default function AddressFormModal({ address, onClose }) {
           value={mobile}
           onChange={(e) => setMobile(e.target.value)}
         />
+        {!address && (
+          <button id="dummy-data-btn" type="button" onClick={addDummyData}>
+            Fill Dummy data
+          </button>
+        )}
         <div id="submit-cancel-btns">
           <button type="submit">{address ? "Save" : "Add"}</button>
           <button onClick={onClose}>Cancel</button>
         </div>
-        <button id="dummy-data-btn" type="button" onClick={addDummyData}>
-          Add Dummy data
-        </button>
       </form>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import AddressListing from "../../components/Address/AddressListing/AddressListing";
@@ -13,9 +14,14 @@ export default function Profile() {
 
   const logoutBtnHandler = async () => {
     try {
-      await logoutUser();
+      await toast.promise(logoutUser(), {
+        loading: "Logging you Out",
+        success: <b>Logged Out</b>,
+        error: <b>Something went wrong</b>,
+      });
     } catch (error) {
       console.log(error);
+      toast.error("Something went wrong");
     }
   };
 

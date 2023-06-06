@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import { auth } from "../../config/firebase";
@@ -10,28 +11,55 @@ export default function Authentication({ signup, login }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
   const guestCredentials = {
     email: "neilarmstrong@nasa.com",
     password: "neil@123456",
   };
 
   const signUpBtnHandler = async () => {
+    const toastId = toast.loading("Signing you Up");
     try {
       await signUpUser(email, password);
       await updateProfile(auth.currentUser, { displayName: name });
-      setMessage("You have Signed Up.");
+      toast.success("Signed Up", {
+        id: toastId,
+      });
     } catch (error) {
       console.log(error);
+      toast.error("Something went wrong", {
+        id: toastId,
+      });
     }
   };
 
   const loginBtnHandler = async () => {
     try {
-      await loginUser(email, password);
-      setMessage("You have Logged In.");
+      await toast.promise(loginUser(email, password), {
+        loading: "Logging you In",
+        success: <b>Logged In</b>,
+        error: <b>Something went wrong</b>,
+      });
     } catch (error) {
       console.log(error);
+      toast.error("Something went wrong");
+    }
+  };
+
+  const guestLogin = async () => {
+    setEmail(guestCredentials.email);
+    setPassword(guestCredentials.password);
+    try {
+      await toast.promise(
+        loginUser(guestCredentials.email, guestCredentials.password),
+        {
+          loading: "Logging you In",
+          success: <b>Logged In</b>,
+          error: <b>Something went wrong</b>,
+        }
+      );
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
     }
   };
 
@@ -41,17 +69,6 @@ export default function Authentication({ signup, login }) {
       return signUpBtnHandler();
     } else if (login) {
       return loginBtnHandler();
-    }
-  };
-
-  const guestLogin = async () => {
-    setEmail(guestCredentials.email);
-    setPassword(guestCredentials.password);
-    try {
-      await loginUser(guestCredentials.email, guestCredentials.password);
-      setMessage("You have Logged In.");
-    } catch (error) {
-      console.log(error);
     }
   };
 
@@ -110,7 +127,6 @@ export default function Authentication({ signup, login }) {
           </p>
         </>
       )}
-      {message && <p>{message}</p>}
     </form>
   );
 }

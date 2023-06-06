@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import HomePage from "./pages/HomePage/HomePage";
 import Navbar from "./components/Navbar/Navbar";
@@ -17,6 +18,10 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
+      <Toaster
+        position="bottom-right"
+        toastOptions={{ style: { fontWeight: "bold" } }}
+      />
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />

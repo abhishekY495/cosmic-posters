@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 import { WishlistContext } from "../../contexts/WishlistContext";
 import { CartContext } from "../../contexts/CartContext";
@@ -18,10 +19,12 @@ export default function Wishlist() {
 
   const removeFromWishlistBtnHandler = (id) => {
     wishlistDispatch({ type: "REMOVE_FROM_WISHLIST", payload: id });
+    toast.error("Removed from Wishlist");
   };
 
   const addToCartBtnHandler = (poster) => {
     cartDispatch({ type: "ADD_TO_CART", payload: poster });
+    toast.success("Added to Cart");
   };
   const goToCartBtnHandler = () => navigate("/cart");
 
