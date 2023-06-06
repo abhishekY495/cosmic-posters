@@ -50,3 +50,9 @@
   cursor: pointer;
   box-shadow: none;
 }
+
+#address-profile-listing {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem ;
+}

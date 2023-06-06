@@ -52,13 +52,13 @@ export default function Profile() {
           </button>
         </div>
       </div>
-      <AddressListing
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        selectedAddress={selectedAddress}
-        setSelectedAddress={setSelectedAddress}
-      />
-      <PlacedOrderListing />
+      <div id="address-profile-listing">
+        <AddressListing
+          selectedAddress={selectedAddress}
+          setSelectedAddress={setSelectedAddress}
+        />
+        <PlacedOrderListing />
+      </div>
     </>
   );
 }

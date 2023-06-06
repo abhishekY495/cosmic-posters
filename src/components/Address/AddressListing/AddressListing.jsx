@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import AddressFormModal from "../AddressFormModal/AddressFormModal";
 import { AddressContext } from "../../../contexts/AddressContext";
@@ -6,12 +6,15 @@ import "./AddressListing.css";
 
 export default function AddressListing({
   checkout,
-  isModalOpen,
-  setIsModalOpen,
   selectedAddress,
   setSelectedAddress,
 }) {
   const { state, dispatch } = useContext(AddressContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hideAddressListing, setHideAddressListing] = useState(true);
+  const hideStyle = {
+    display: hideAddressListing ? "none" : "block",
+  };
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -33,14 +36,17 @@ export default function AddressListing({
         <AddressFormModal address={selectedAddress} onClose={closeModal} />
       )}
       <div id="addresses-container">
-        <p id="addresses-container-heading">
-          Your Addresses{" "}
-          <span id="address-count">({state.addresses.length})</span>
-        </p>
+        <div
+          id="addresses-container-heading"
+          onClick={() => setHideAddressListing(!hideAddressListing)}
+        >
+          <span>{hideAddressListing ? "⏩" : "⏬"}</span>
+          <p>Addresses ({state.addresses.length})</p>
+        </div>
         {state.addresses.map((address) => {
           const { id, name, mobile, street, pincode, city, state } = address;
           return (
-            <div key={id} className="address">
+            <div key={id} className="address" style={hideStyle}>
               <p className="name">{name}</p>
               <p className="street">{street}</p>
               <p className="city-pincode">
