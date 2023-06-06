@@ -19,20 +19,29 @@ export default function PlacedOrderListing() {
         onClick={() => setHideOrders(!hideOrders)}
       >
         <span>{hideOrders ? "⏩" : "⏬"}</span>
-        <p>Your Orders ({placedOrders.length})</p>
+        <p>Orders ({placedOrders.length})</p>
       </div>
-      {placedOrders.map(({ orderId, posters }) => {
+      {placedOrders.map(({ orderId, posters, totalAmount }) => {
         return (
           <div key={orderId} id="placed-order-posters" style={hideStyle}>
-            <p>Order Id: {orderId}</p>
-            {posters.map(({ name, quantity }) => {
+            <div className="order-id">
+              <p>Order Id:</p>
+              <span>{orderId}</span>
+            </div>
+            {posters.map(({ id, name, quantity, price }) => {
               return (
-                <p>
-                  {name} ({quantity})
-                </p>
+                <div key={id} className="placed-order-poster">
+                  <p>
+                    {name} ({quantity})
+                  </p>
+                  <p>{price * quantity}</p>
+                </div>
               );
             })}
-            <hr />
+            <div className="placed-order-total">
+              <p>Total</p>
+              <span className="total-amount">₹{totalAmount}</span>
+            </div>
           </div>
         );
       })}
