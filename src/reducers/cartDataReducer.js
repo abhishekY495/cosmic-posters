@@ -27,12 +27,8 @@ export const cartDataReducer = (state, action) => {
               ...item,
               quantity:
                 value === "increase"
-                  ? poster.quantity < 5
-                    ? poster.quantity + 1
-                    : poster.quantity
-                  : poster.quantity !== 1
-                  ? poster.quantity - 1
-                  : poster.quantity,
+                  ? poster.quantity + 1
+                  : poster.quantity - 1,
             }
           : item
       );
