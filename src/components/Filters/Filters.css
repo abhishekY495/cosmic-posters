@@ -3,10 +3,10 @@
 #filters-group {
   flex: 1 1 250px;
   height: 100%;
-  padding: 1rem 0.8rem 0.8rem 0.8rem;
+  padding: 1.2rem 1rem 0.8rem 1rem;
   border-right: 2px solid black;
   position: sticky;
-  top: 5rem;
+  top: 0;
 }
 #filters-group input {
   accent-color: var(--primary-accent-color);
