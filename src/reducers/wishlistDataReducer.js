@@ -19,6 +19,12 @@ export const wishlistDataReducer = (state, action) => {
         wishlist: newWishlistData,
       };
     }
+    case "EMPTY_WISHLIST": {
+      return {
+        ...initState,
+        wishlist: [],
+      };
+    }
     default:
       return state;
   }

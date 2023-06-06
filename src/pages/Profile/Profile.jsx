@@ -5,10 +5,14 @@ import { AuthContext } from "../../contexts/AuthContext";
 import AddressListing from "../../components/Address/AddressListing/AddressListing";
 import AddressFormModal from "../../components/Address/AddressFormModal/AddressFormModal";
 import PlacedOrderListing from "../../components/PlacedOrderListing/PlacedOrderListing";
+import { CartContext } from "../../contexts/CartContext";
+import { WishlistContext } from "../../contexts/WishlistContext";
 import "./Profile.css";
 
 export default function Profile() {
   const { user, logoutUser } = useContext(AuthContext);
+  const { dispatch: cartDispatch } = useContext(CartContext);
+  const { dispatch: wishlistDispatch } = useContext(WishlistContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState(null);
 
@@ -19,6 +23,8 @@ export default function Profile() {
         success: <b>Logged Out</b>,
         error: <b>Something went wrong</b>,
       });
+      wishlistDispatch({type:"EMPTY_WISHLIST"})
+      cartDispatch({type:"EMPTY_CART"})
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
