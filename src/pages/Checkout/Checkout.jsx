@@ -1,20 +1,28 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { faker } from "@faker-js/faker";
 
 import { CartContext } from "../../contexts/CartContext";
 import { AddressContext } from "../../contexts/AddressContext";
 import AddressFormModal from "../../components/Address/AddressFormModal/AddressFormModal";
+import { PlacedOrderContext } from "../../contexts/PlacedOrderContext";
 import "./Checkout.css";
+import PlaceOrder from "../../components/PlaceOrder/PlaceOrder";
 
 export default function Checkout() {
   const {
     state: { cart },
+    dispatch: cartDispatch,
   } = useContext(CartContext);
   const {
     state: { addresses },
   } = useContext(AddressContext);
+  const { dispatch: placedOrderDispatch } = useContext(PlacedOrderContext);
   const [selectedAddress, setSelectedAddress] = useState({});
   const [disabledPlaceOrderBtn, setDisabledPlaceOrderBtn] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [placeOrderModalOpen, setPlaceOrderModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const total = cart
     .reduce((acc, curr) => (acc += curr.price * curr.quantity), 0)
@@ -33,9 +41,24 @@ export default function Checkout() {
     setIsModalOpen(false);
   };
 
+  const placeOrder = () => {
+    const posters = cart;
+    const orderId = faker.string.uuid();
+    setPlaceOrderModalOpen(true);
+    setTimeout(() => {
+      placedOrderDispatch({
+        type: "ADD_PLACED_ORDERS",
+        payload: { orderId, posters },
+      });
+      cartDispatch({ type: "EMPTY_CART" });
+      navigate("/profile");
+    }, 5000);
+  };
+
   return (
     <>
       {isModalOpen && <AddressFormModal onClose={closeModal} />}
+      {placeOrderModalOpen && <PlaceOrder />}
       {cart.length === 0 ? (
         <p id="checkout-empty-message">Add Posters in Cart to Checkout...</p>
       ) : (
@@ -122,7 +145,7 @@ export default function Checkout() {
                   disabledPlaceOrderBtn ? "-disabled" : ""
                 }`}
                 disabled={disabledPlaceOrderBtn}
-                onClick={() => console.log("Order placed")}
+                onClick={placeOrder}
               >
                 Place Order
               </button>
