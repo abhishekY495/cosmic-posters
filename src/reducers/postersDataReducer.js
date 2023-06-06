@@ -61,7 +61,8 @@ export const postersReducer = (state, action) => {
     }
     case "CLEAR_ALL_FILTERS": {
       return {
-        ...initStateCopy, isLoading: false
+        ...initStateCopy,
+        isLoading: false,
       };
     }
     default:
