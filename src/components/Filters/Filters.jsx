@@ -33,7 +33,6 @@ export default function Filters() {
   };
 
   const clearFiltersBtnHandler = () => {
-    console.log(state);
     dispatch({ type: "CLEAR_ALL_FILTERS" });
   };
 

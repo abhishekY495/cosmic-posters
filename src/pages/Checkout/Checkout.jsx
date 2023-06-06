@@ -65,12 +65,10 @@ export default function Checkout() {
         <>
           <p id="checkout-heading">Checkout ({cart.length})</p>
           <div id="address-checkout-container">
-            {addresses.length === 0 && (
-              <button id="checkout-add-address" onClick={addAddressHandler}>
-                Add Address to Place Order
-              </button>
-            )}
             <div id="address-container">
+              <button id="checkout-add-address" onClick={addAddressHandler}>
+                Add Address
+              </button>
               {addresses.map((address) => {
                 const { id, name, street, city, pincode, state, mobile } =
                   address;

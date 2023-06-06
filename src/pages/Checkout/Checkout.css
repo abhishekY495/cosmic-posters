@@ -19,12 +19,11 @@
 }
 
 #checkout-add-address {
-  height: max-content;
   padding: 0.3rem 0.8rem;
   font-family: var(--primary-font);
   font-weight: bold;
   font-size: 1rem;
-  margin: 2rem;
+  margin: 0.4rem 4rem;
   border: 1px solid black;
   border-radius: 3px;
   box-shadow: 2px 2px var(--primary-accent-color);
@@ -39,6 +38,8 @@
 }
 
 #address-container {
+  display: flex;
+  flex-direction: column;
   padding: 0 1rem 0 0;
   height: 60vh;
   overflow-y: scroll;
