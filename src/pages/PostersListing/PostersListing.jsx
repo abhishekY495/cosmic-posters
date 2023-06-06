@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import { DataContext } from "../../contexts/DataContext";
@@ -73,20 +75,22 @@ export default function PostersListing() {
           {postersData.length === 0 && (
             <div id="no-posters-container">
               <p>No Posters found</p>
-              <img
+              <LazyLoadImage
                 id="no-posters-image"
                 src="https://raw.githubusercontent.com/abhishekY495/asteroid-alert/main/assets/space-dog.webp"
                 alt="dog floating in a spacecraft"
+                effect="blur"
               />
             </div>
           )}
           {state.isLoading ? (
             <div id="loading-container">
               <p>Getting latest Posters</p>
-              <img
+              <LazyLoadImage
                 id="loading-image"
                 src="https://res.cloudinary.com/dfuirkjxj/image/upload/v1686062758/gifs/loop-galaxies_hsmhis.webp"
                 alt="looping galaxies"
+                effect="blur"
               />
             </div>
           ) : (
@@ -95,7 +99,11 @@ export default function PostersListing() {
               return (
                 <div className="poster" key={id}>
                   <Link to={`/poster/${id}`}>
-                    <img className="poster-image" src={image} alt={name} />
+                    <LazyLoadImage
+                      src={image}
+                      alt={name}
+                      className="poster-image"
+                    />
                   </Link>
                   <div className="poster-info">
                     <p className="poster-name">{name}</p>
