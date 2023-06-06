@@ -53,7 +53,7 @@ export default function PostersListing() {
     setTimeout(() => {
       dispatch({ type: "DATA_LOADED" });
     }, 2500);
-  }, []);
+  });
 
   return (
     <>
