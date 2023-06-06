@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 import { AuthContext } from "../../contexts/AuthContext";
@@ -11,9 +11,18 @@ export default function Authentication({ signup, login }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
   const guestCredentials = {
     email: "neilarmstrong@nasa.com",
     password: "neil@123456",
+  };
+  const redirectTo = () => {
+    if (location.state) {
+      return navigate(location?.state?.from?.pathname);
+    } else {
+      return navigate("/posters-listing");
+    }
   };
 
   const signUpBtnHandler = async () => {
@@ -24,6 +33,7 @@ export default function Authentication({ signup, login }) {
       toast.success("Signed Up", {
         id: toastId,
       });
+      redirectTo();
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong", {
@@ -39,6 +49,7 @@ export default function Authentication({ signup, login }) {
         success: <b>Logged In</b>,
         error: <b>Something went wrong</b>,
       });
+      redirectTo();
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -57,6 +68,7 @@ export default function Authentication({ signup, login }) {
           error: <b>Something went wrong</b>,
         }
       );
+      redirectTo();
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
