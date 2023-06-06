@@ -34,7 +34,7 @@ export default function PlacedOrderListing() {
                   <p>
                     {name} ({quantity})
                   </p>
-                  <p>{price * quantity}</p>
+                  <p>{(price * quantity).toFixed(2)}</p>
                 </div>
               );
             })}
