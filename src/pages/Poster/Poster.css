@@ -6,7 +6,7 @@
 }
 
 #poster-image {
-  flex-basis: 280px;
+  width: 280px;
 }
 
 #poster-image img {
@@ -93,12 +93,12 @@
   #poster-rating {
     padding-right: 1rem;
     top: -2.4rem;
-    left: 14.8rem;
+    left: 14rem;
     width: max-content;
     height: max-content;
   }
   #poster-wishlist-icon {
     top: -28.9rem;
-    left: 16.2rem;
+    left: 15.2rem;
   }
 }
