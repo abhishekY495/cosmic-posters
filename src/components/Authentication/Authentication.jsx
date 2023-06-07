@@ -26,33 +26,67 @@ export default function Authentication({ signup, login }) {
   };
 
   const signUpBtnHandler = async () => {
-    const toastId = toast.loading("Signing you Up");
+    const toastId = toast.loading("Signing you Up", {
+      position: "top-center",
+    });
     try {
       await signUpUser(email, password);
       await updateProfile(auth.currentUser, { displayName: name });
       toast.success("Signed Up", {
         id: toastId,
+        position: "top-center",
       });
       redirectTo();
     } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong", {
-        id: toastId,
-      });
+      if (error.message.includes("invalid-email")) {
+        toast.error("Invalid email format", {
+          id: toastId,
+          position: "top-center",
+        });
+      } else if (error.message.includes("weak-password")) {
+        toast.error("Password should be atleast 6 characters", {
+          id: toastId,
+          position: "top-center",
+        });
+      } else {
+        toast.error("Something went wrong", {
+          id: toastId,
+          position: "top-center",
+        });
+        console.log(error.message);
+      }
     }
   };
 
   const loginBtnHandler = async () => {
+    const toastId = toast.loading("Logging you In", {
+      position: "top-center",
+    });
     try {
-      await toast.promise(loginUser(email, password), {
-        loading: "Logging you In",
-        success: <b>Logged In</b>,
-        error: <b>Something went wrong</b>,
+      await loginUser(email, password);
+      toast.success("Logged In", {
+        id: toastId,
+        position: "top-center",
       });
       redirectTo();
     } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong");
+      if (error.message.includes("user-not-found")) {
+        toast.error("User not found", {
+          id: toastId,
+          position: "top-center",
+        });
+      } else if (error.message.includes("wrong-password")) {
+        toast.error("Wrong password", {
+          id: toastId,
+          position: "top-center",
+        });
+      } else {
+        console.log(error.message);
+        toast.error("Something went wrong", {
+          id: toastId,
+          position: "top-center",
+        });
+      }
     }
   };
 
