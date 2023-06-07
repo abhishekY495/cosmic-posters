@@ -52,6 +52,7 @@
 }
 
 .cart-poster-info {
+  width: 220px;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -144,4 +145,24 @@
   color: white;
   border-radius: 3px;
   box-shadow: 3px 3px var(--secondary-accent-color);
+}
+
+/*  */
+
+@media (max-width: 770px) {
+  #cart-checkout-container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #cart-posters-container {
+    width: 300px;
+  }
+  .cart-poster-image-container {
+    flex-basis: 200px;
+  }
 }

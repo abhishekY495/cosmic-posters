@@ -31,9 +31,9 @@ export default function Wishlist() {
   return (
     <>
       {wishlist.length === 0 ? (
-        <p className="wishlist-message-1">Wishlist is Empty...</p>
+        <p className="wishlist-message">Wishlist is Empty...</p>
       ) : (
-        <p className="wishlist-message-2">
+        <p className="wishlist-message">
           {wishlist.length > 1
             ? `${wishlist.length} Posters`
             : `${wishlist.length} Poster`}

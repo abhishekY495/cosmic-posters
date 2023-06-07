@@ -4,7 +4,7 @@
   padding: 1.2rem 1rem 0.8rem 1rem;
   border-right: 2px solid black;
   position: sticky;
-  top: 0;
+  top: 4.4rem;
 }
 #filters-group input {
   accent-color: var(--primary-accent-color);

@@ -1,12 +1,11 @@
 nav {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 5rem;
   background-color: var(--nav-background-color);
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 0.8rem;
   font-size: 2rem;
   position: sticky;
   top: 0;
@@ -16,6 +15,9 @@ nav {
 #app-name {
   font-size: 2rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
 #poster-icon {
@@ -30,6 +32,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: 50%;
 }
 
 .nav-explore-link {
@@ -61,4 +64,35 @@ sup {
   font-weight: bold;
   padding: 1px 5px;
   border-radius: 100%;
+}
+
+@media (max-width: 630px) {
+  nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.3rem 0.8rem 0.6rem 0.8rem;
+    font-size: 1rem;
+  }
+  #app-name {
+    font-size: 1.8rem;
+  }
+  #nav-home-search-group {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-explore-link {
+    padding: 0.2rem 1rem;
+    font-size: 0.9rem;
+  }
+  .nav-links img {
+    margin: -0.4rem;
+    padding: 0 0.2rem;
+  }
+  sup {
+    top: -0.3rem;
+    left: 0.9rem;
+  }
 }

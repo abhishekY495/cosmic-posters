@@ -21,14 +21,14 @@ export default function Navbar() {
     <nav>
       <div id="nav-home-search-group">
         <Link className="nav-links nav-home-link" to="/">
-          <p id="app-name">
-            Cosmic{" "}
+          <div id="app-name">
+            <p>Cosmic</p>
             <img
               id="poster-icon"
               src="https://cdn-icons-png.flaticon.com/64/1453/1453992.png"
               alt="poster"
             />
-          </p>
+          </div>
         </Link>
         <SearchBar />
       </div>

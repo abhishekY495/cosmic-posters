@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  gap: 0.8rem;
+  gap: 2em;
 }
 
 #checkout-add-address {
@@ -128,4 +128,27 @@
 }
 #place-order-btn-disabled:hover {
   cursor: not-allowed;
+}
+
+/*  */
+
+@media (max-width: 770px) {
+  #address-checkout-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin: 0 auto 4rem auto;
+  }
+  #checkout-total-container {
+    padding: 0 0 1rem 0;
+    border-bottom: 1px solid black;
+  }
+  #address-container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width:480px) {
+  #address-checkout-container {
+    width: 320px;
+  }
 }

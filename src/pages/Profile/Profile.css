@@ -54,5 +54,23 @@
 #address-profile-listing {
   display: flex;
   flex-direction: column;
-  gap: 1rem ;
+  gap: 1rem;
+}
+
+@media (max-width: 550px) {
+  #profile,
+  #addresses-container,
+  #placed-order-container {
+    width: 320px;
+    padding: 0.5rem 1rem 1rem 1rem;
+  }
+  .order-id p {
+    width: 80px;
+  }
+  .order-id span {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

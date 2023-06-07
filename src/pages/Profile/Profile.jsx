@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import AddressListing from "../../components/Address/AddressListing/AddressListing";
@@ -15,6 +16,7 @@ export default function Profile() {
   const { dispatch: wishlistDispatch } = useContext(WishlistContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState(null);
+  const navigate = useNavigate();
 
   const logoutBtnHandler = async () => {
     try {
@@ -23,8 +25,9 @@ export default function Profile() {
         success: <b>Logged Out</b>,
         error: <b>Something went wrong</b>,
       });
-      wishlistDispatch({type:"EMPTY_WISHLIST"})
-      cartDispatch({type:"EMPTY_CART"})
+      wishlistDispatch({ type: "EMPTY_WISHLIST" });
+      cartDispatch({ type: "EMPTY_CART" });
+      navigate("/posters-listing");
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
