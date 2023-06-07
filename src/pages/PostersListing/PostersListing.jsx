@@ -9,6 +9,9 @@ import { DataContext } from "../../contexts/DataContext";
 import { CartContext } from "../../contexts/CartContext";
 import { WishlistContext } from "../../contexts/WishlistContext";
 import Filters from "../../components/Filters/Filters";
+import starIcon from "../../assets/poster/star.svg";
+import emptyHeartIcon from "../../assets/poster/empty-heart.svg";
+import redHeartIcon from "../../assets/poster/filled-heart.svg";
 import "./PostersListing.css";
 
 export default function PostersListing() {
@@ -109,11 +112,7 @@ export default function PostersListing() {
                     <p className="poster-name">{name}</p>
                     <p className="poster-price">₹{price}</p>
                     <p className="poster-rating">
-                      <img
-                        className="star-icon"
-                        src="https://img.icons8.com/?size=22&id=8ggStxqyboK5&format=svg"
-                        alt="star"
-                      />
+                      <img className="star-icon" src={starIcon} alt="star" />
                       {rating}
                     </p>
                     {cart.find((poster) => poster.id === id) ? (
@@ -135,14 +134,14 @@ export default function PostersListing() {
                       <img
                         className="wishlist-icon"
                         onClick={() => removeFromWishlistBtnHandler(id)}
-                        src="https://img.icons8.com/?size=22&id=V4c6yYlvXtzy&format=svg"
+                        src={redHeartIcon}
                         alt="red-heart"
                       />
                     ) : (
                       <img
                         className="wishlist-icon"
                         onClick={() => addToWishlistBtnHandler(poster)}
-                        src="https://img.icons8.com/?size=22&id=4yauMM-kbvJ-&format=svg"
+                        src={emptyHeartIcon}
                         alt="heart"
                       />
                     )}

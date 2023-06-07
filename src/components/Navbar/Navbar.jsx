@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import { CartContext } from "../../contexts/CartContext";
 import { WishlistContext } from "../../contexts/WishlistContext";
+import cartIcon from "../../assets/navbar/black-cart.svg";
+import wishlistIcon from "../../assets/navbar/black-heart.svg";
+import profileIcon from "../../assets/navbar/black-profile.svg";
+import appIcon from "../../assets/app-icon.png";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -23,11 +27,7 @@ export default function Navbar() {
         <Link className="nav-links nav-home-link" to="/">
           <div id="app-name">
             <p>Cosmic</p>
-            <img
-              id="poster-icon"
-              src="https://cdn-icons-png.flaticon.com/64/1453/1453992.png"
-              alt="poster"
-            />
+            <img id="poster-icon" src={appIcon} alt="poster" />
           </div>
         </Link>
         <SearchBar />
@@ -37,24 +37,15 @@ export default function Navbar() {
           Explore
         </Link>
         <Link className="nav-links nav-wishlist-link" to="wishlist">
-          <img
-            src="https://img.icons8.com/?size=22&id=59805&format=svg"
-            alt="wishlist"
-          />
+          <img src={wishlistIcon} alt="wishlist" />
           {wishlistCount > 0 && <sup>{wishlistCount}</sup>}
         </Link>
         <Link className="nav-links nav-cart-link" to="cart">
-          <img
-            src="https://img.icons8.com/?size=22&id=59997&format=svg"
-            alt="cart"
-          />
+          <img src={cartIcon} alt="cart" />
           {cartCount > 0 && <sup>{cartCount}</sup>}
         </Link>
         <Link className="nav-links nav-profile-link" to="profile">
-          <img
-            src="https://img.icons8.com/?size=22&id=84898&format=svg"
-            alt="profile"
-          />
+          <img src={profileIcon} alt="profile" />
         </Link>
       </div>
     </nav>
