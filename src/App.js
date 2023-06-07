@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <Toaster
-        position="bottom-right"
+        position="top-center"
         toastOptions={{ style: { fontWeight: "bold" } }}
       />
       <Navbar />
