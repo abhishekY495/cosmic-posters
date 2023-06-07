@@ -51,10 +51,10 @@ const data = [
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571224/planet/Uranus_Rings_nx4ccs.jpg",
   },
   {
-    name: "Barnard 33",
+    name: "Horsehead Nebula",
     category: "nebula",
     description:
-      "Barnard 33, more commonly known as the Horsehead Nebula, is a dark nebula located in the Orion constellation. It is one of the most identifiable nebulae because of its resemblance to a horse's head.",
+      "The Horsehead Nebula, also known as Bernard 33, is a dark nebula located in the Orion constellation. It is one of the most identifiable nebulae because of its resemblance to a horse's head.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571273/nebula/Barnard_33_rh0wcs.jpg",
   },
@@ -123,7 +123,7 @@ const data = [
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571273/nebula/Rosette_Nebula_guxf0e.jpg",
   },
   {
-    name: "Great Red Spot on Jupiter",
+    name: "Great Red Spot",
     category: "planet",
     description:
       "Jupiter's Great Red Spot is a gigantic storm so massive that nearly 3 Earths would fit in it. First spotted in 1665, indicating that the storm has existed for nearly 358 years, while the exact date of its formation is unknown.",
@@ -155,7 +155,7 @@ const data = [
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571413/galaxy/Stephan_s_Quintet_snlttt.jpg",
   },
   {
-    name: "First Footprints on the Moon",
+    name: "Footprints on Moon",
     category: "misc",
     description:
       "A close-up view of Neil Armstrong's footprint, who becomes the first human being to set foot on the surface of the moon. The footprints on the Moon will be there for a million years since there is no wind to blow them away.",
@@ -171,7 +171,7 @@ const data = [
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571226/planet/Earth_smenw3.jpg",
   },
   {
-    name: "Hokusai crater on Mercury",
+    name: "Hokusai crater",
     category: "planet",
     description:
       "This true color image from NASA's MESSENGER spacecraft shows the impact crater Hokusai on Mercury. The crater has an impressive system of rays, which extend as much as a thousand kilometers across the planet and are the longest that have yet been identified on Mercury.",
@@ -251,7 +251,7 @@ const data = [
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571224/planet/Uranus_myvvol.jpg",
   },
   {
-    name: "Earthrise from Apollo 8",
+    name: "Earthrise - Apollo 8",
     category: "planet",
     description:
       "Earthrise is a photograph of Earth and some of the Moon's surface that was taken from lunar orbit by astronaut William Anders on December 24, 1968, during the Apollo 8 mission, the first crewed voyage to orbit the Moon.",
@@ -291,7 +291,7 @@ const data = [
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571224/planet/Saturn_ozsj1r.jpg",
   },
   {
-    name: "Sand dunes on Mars",
+    name: "Sand dunes",
     category: "planet",
     description:
       "This look back at a sand dune that NASA's Curiosity Mars rover drove across was taken by the rover's Mast Camera (Mastcam) during the 538th Martian day of Curiosity's work on Mars.",
@@ -299,7 +299,7 @@ const data = [
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571227/planet/Sand_dune_-_Mars_gkura9.jpg",
   },
   {
-    name: "First Untethered Flight",
+    name: "Untethered Flight",
     category: "misc",
     description:
       "STS-41-B produces an iconic image of Bruce McCandless II floating in space on the first untethered spacewalk using the Manned Maneuvering Unit (MMU), on February 7, 1984.",
@@ -315,7 +315,7 @@ const data = [
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571309/moon/Titan_qoshcq.jpg",
   },
   {
-    name: "Earth from Apollo 10",
+    name: "Earthrise - Apollo 10",
     category: "planet",
     description:
       "A view of Earth rising above the Lunar horizon photographed from the Apollo 10 Lunar Module in May 1969.",
@@ -331,7 +331,7 @@ const data = [
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571341/misc/Solar_System_qputxm.jpg",
   },
   {
-    name: "Geyser Basin of Enceladus",
+    name: "Geyser Basin",
     category: "moon",
     description:
       "Geysers on the south pole, both large and small, spray water vapor and ice particles from many locations on Saturn's moon Enceladus. During a 7 year survey, Cassini spacecraft mapped out 101 geysers on the moon's south pole.",
@@ -339,7 +339,7 @@ const data = [
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571309/moon/Geyser_Basin_on_Enceladus_mgzudc.jpg",
   },
   {
-    name: "Curiosity Rover on Mars",
+    name: "Curiosity Rover",
     category: "planet",
     description:
       "A self-portrait of NASA's Curiosity Mars rover in Gale Crater on Mars.",
