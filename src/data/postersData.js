@@ -38,7 +38,7 @@ const data = [
     name: "Voyager 1",
     category: "misc",
     description:
-      "A self-portrait of NASA's Curiosity Mars rover in Gale Crater on Mars.",
+      "No spacecraft has gone farther than NASA's Voyager 1 launched on September 5, 1977. Its so far away that it takes light 20 hours and 33 minutes to travel meaning means it takes roughly two days to send a message to Voyager 1.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571341/misc/Voyager_1_bg0afs.jpg",
   },
@@ -94,7 +94,7 @@ const data = [
     name: "Jupiter",
     category: "planet",
     description:
-      "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant, meaning it doesn't have a surface like Earth to land a spacecraft on. It has more than 75 moons and some may have oceans beneath their crusts that might support life.",
+      "Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant, meaning it doesn't have a surface like Earth to land a spacecraft on. It has more than 75 moons and some may have oceans beneath their crusts that may support life.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571244/planet/Jupiter_z2zxgp.jpg",
   },
@@ -110,7 +110,7 @@ const data = [
     name: "The Bubble Nebula",
     category: "nebula",
     description:
-      "NGC 7635, also known as the Bubble Nebula is an emission nebula located 7100 light-years away discovered in 1787.",
+      "NGC 7635, also known as the Bubble Nebula is an emission nebula located 7100 light-years away discovered in 1787. The central bubble is 7 light-years wide.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571275/nebula/The_Bubble_Nebula_u56t4t.jpg",
   },
@@ -158,7 +158,7 @@ const data = [
     name: "Footprints on Moon",
     category: "misc",
     description:
-      "A close-up view of Neil Armstrong's footprint, who becomes the first human being to set foot on the surface of the moon. The footprints on the Moon will be there for a million years since there is no wind to blow them away.",
+      "A close-up view of Neil Armstrong's footprint, who became the first human being to set foot on the surface of the moon. The footprints on the Moon will be there for a million years since there is no wind to blow them away.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571342/misc/First_Footprints_on_Moon_ac42r2.jpg",
   },
@@ -166,7 +166,7 @@ const data = [
     name: "Earth",
     category: "planet",
     description:
-      "Earth, our home planet is the third planet from the Sun, and the only place we know of so far that's inhabited by living things. In 2002, NASA scientists stitched together strips of natural color images of Earth, collected over four months from the MODIS instrument aboard NASA's Terra satellite",
+      "Earth, our home planet is the third planet from the Sun, and the only place we know of so far that's inhabited by living things. In 2002, NASA scientists stitched together strips of natural color images of Earth, collected over 4 months from the MODIS instrument aboard NASA's Terra satellite.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571226/planet/Earth_smenw3.jpg",
   },
@@ -190,7 +190,7 @@ const data = [
     name: "The Golden Record",
     category: "misc",
     description:
-      "A self-portrait of NASA's Curiosity Mars rover in Gale Crater on Mars.",
+      "The Golden Record is a 12-inch gold-plated phonograph record containing sounds and images selected to portray the diversity of life and culture on Earth aboard the Voyager 1 and 2, intended for any intelligent extraterrestrial life form who may find them.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571951/misc/The_Golden_Record_gtxbu3.jpg",
   },
@@ -222,7 +222,7 @@ const data = [
     name: "Sagittarius A",
     category: "misc",
     description:
-      "Sagittarius A, abbreviated Sgr A*, is the supermassive black hole at the Galactic Center of the Milky Way captured by the Event Horizon Telescope — a global network of radio telescopes. The image is the first visual confirmation that a black hole indeed exists at the center of our galaxy.",
+      "Sagittarius A, abbreviated Sgr A*, is the supermassive black hole at the center of the Milky Way captured by the Event Horizon Telescope — a global network of radio telescopes. The image is the first visual confirmation that a black hole indeed exists at the center of our galaxy.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571341/misc/Sagittarius_A_exv24x.jpg",
   },
@@ -230,7 +230,7 @@ const data = [
     name: "Veil Nebula",
     category: "nebula",
     description:
-      "The Veil Nebula is one of the most spectacular supernova remnants in the sky, extending 110 light-years across and covering an area of sky six times larger than the full moon.",
+      "The Veil Nebula is one of the most spectacular supernova remnants in the sky, extending 110 light-years across, covering an area of sky, 6 times larger than the full moon.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571273/nebula/Veil_Nebula_x0haoo.jpg",
   },
@@ -238,7 +238,7 @@ const data = [
     name: "Arp 273",
     category: "galaxy",
     description:
-      "Arp 273 is a pair of interacting galaxies, 300 million light-years, combining to form a beautiful a rose like structure in this image taken by the Hubble Space Telescope. It is thought that the smaller galaxy has actually passed through the larger one.",
+      "Arp 273 is a pair of interacting galaxies, 300 million light-years, combining to form a beautiful rose like structure, taken by the Hubble Space Telescope. It is thought that the smaller galaxy has actually passed through the larger one.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571413/galaxy/Arp_273_ihyq1f.jpg",
   },
@@ -262,7 +262,7 @@ const data = [
     name: "Andromeda Galaxy",
     category: "galaxy",
     description:
-      "The Andromeda Galaxy is a spiral galaxy and is the closest major galaxy to the Milky Way. Estimated to be 25% to 50% massive than the Milky Way galaxy, expected to collide in about 4-5 billion years.",
+      "The Andromeda Galaxy is the closest major galaxy to the Milky Way. Estimated to be 25% to 50% massive than the Milky Way galaxy, expected to collide with it, in about 4-5 billion years.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571413/galaxy/Andromeda_Galaxy_d1xnfe.jpg",
   },
@@ -273,6 +273,13 @@ const data = [
       "This artist's concept illustrates the spiral structure of our galaxy, the Milky Way. Our home galaxy's is about 100,000 light-years across and just 1000 light-years thick, according to Las Cumbres Observatory.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571413/galaxy/The_Milky_Way_Galaxy_dzdqcf.jpg",
+  },
+  {
+    name: "Pismis 24",
+    category: "misc",
+    description: "The star cluster Pismis 24, over 200 times the mass of our Sun, lies in the core of the large emission nebula NGC 6357 located about 6500 light-years away. ",
+    image:
+      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1686193923/misc/Pismis_24_ftp3vd.jpg",
   },
   {
     name: "Mercury",
@@ -310,7 +317,7 @@ const data = [
     name: "Titan",
     category: "moon",
     description:
-      "Saturn's largest moon, Titan has an Earthlike cycle of liquids flowing across its surface. Instead of water, the clouds rain, rivers, seas and lakes are made of liquid methane and ethane.",
+      "Saturn's largest moon, Titan has an Earthlike cycle of liquids flowing across its surface. Instead of water, the clouds rains - rivers, seas and lakes made of liquid methane and ethane.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571309/moon/Titan_qoshcq.jpg",
   },
@@ -353,6 +360,14 @@ const data = [
       "NGC 4676, or the Mice Galaxies, are two spiral galaxies located 300 million light years away captured by the Hubble Space Telescope in 2002. In the next billion years, it will evetually form a single galaxy.",
     image:
       "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1684571413/galaxy/Mice_Galaxies_ce4lpj.jpg",
+  },
+  {
+    name: "IC 2118",
+    category: "nebula",
+    description:
+      "Also known as The Witch Head Nebula due to its shape, IC 2118 is an extremely faint reflection nebula about 1000 light-years from Earth. It glows blue primarily by the light reflected from Rigel, one of the brightest star in the Orion constellation.",
+    image:
+      "https://res.cloudinary.com/dfuirkjxj/image/upload/w_800/v1686193988/nebula/IC-2118_rvyt07.jpg",
   },
 ];
 
