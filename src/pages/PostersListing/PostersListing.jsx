@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -12,6 +12,7 @@ import Filters from "../../components/Filters/Filters";
 import starIcon from "../../assets/poster/star.svg";
 import emptyHeartIcon from "../../assets/poster/empty-heart.svg";
 import redHeartIcon from "../../assets/poster/filled-heart.svg";
+import filterIcon from "../../assets/filter-icon.svg";
 import "./PostersListing.css";
 
 export default function PostersListing() {
@@ -26,6 +27,7 @@ export default function PostersListing() {
   } = useContext(WishlistContext);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [hideFilters, setHideFilters] = useState(false);
   const accountRequiredToast = () => {
     return toast("Account required", {
       style: { background: "#333", color: "#fff" },
@@ -64,6 +66,8 @@ export default function PostersListing() {
     }
   };
 
+  const toggleFilters = () => setHideFilters(!hideFilters);
+
   useEffect(() => {
     setTimeout(() => {
       dispatch({ type: "DATA_LOADED" });
@@ -72,8 +76,14 @@ export default function PostersListing() {
 
   return (
     <>
+      <img
+        onClick={toggleFilters}
+        id="filter-toggle-btn"
+        src={filterIcon}
+        alt="filter"
+      />
       <div id="posters-list-container">
-        <Filters />
+        <Filters hideFilters={hideFilters} />
         <div id="posters-list">
           {postersData.length === 0 && (
             <div id="no-posters-container">

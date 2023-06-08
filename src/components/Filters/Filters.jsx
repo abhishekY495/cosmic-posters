@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { DataContext } from "../../contexts/DataContext";
 import "./Filters.css";
 
-export default function Filters() {
+export default function Filters({ hideFilters }) {
   const { categories, dispatch, state } = useContext(DataContext);
 
   const checkboxHandler = (e) => {
@@ -37,7 +37,7 @@ export default function Filters() {
   };
 
   return (
-    <div id="filters-group">
+    <div id={`filters-group${hideFilters ? "-hidden" : ""}`}>
       <div id="filters-heading">
         <p>Filters</p>
         <button id="clear-btn" onClick={clearFiltersBtnHandler}>

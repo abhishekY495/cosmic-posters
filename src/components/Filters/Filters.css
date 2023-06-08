@@ -1,12 +1,14 @@
-#filters-group {
+#filters-group,
+#filters-group-hidden {
   flex: 1 1 250px;
   height: 100%;
   padding: 1.2rem 1rem 0.8rem 1rem;
   border-right: 2px solid black;
   position: sticky;
-  top: 4.4rem;
+  top: 5rem;
 }
-#filters-group input {
+#filters-group input,
+#filters-group-hidden input {
   accent-color: var(--primary-accent-color);
   margin: 0 5px 0 0;
 }
@@ -54,8 +56,30 @@
 
 /*  */
 
-@media (max-width:630px) {
-  #filters-group {
+@media (max-width: 630px) {
+  #filters-group,
+  #filters-group-hidden {
     top: 5.5rem;
+  }
+}
+
+@media (max-width: 930px) {
+  #filters-group {
+    display: none;
+  }
+  #filters-group-hidden {
+    width: 220px;
+    position: fixed;
+    background-color: var(--nav-background-color);
+    backdrop-filter: blur(20px);
+    z-index: 1;
+    border: none;
+    top: 4.4rem;
+  }
+}
+
+@media (max-width: 630px) {
+  #filters-group-hidden {
+    top: 5.3rem;
   }
 }
