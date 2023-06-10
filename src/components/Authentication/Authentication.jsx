@@ -4,6 +4,8 @@ import { toast } from "react-hot-toast";
 
 import { AuthContext } from "../../contexts/AuthContext";
 import { auth } from "../../config/firebase";
+import showPasswordIcon from "../../assets/password/showPasswordIcon.svg";
+import hidePasswordIcon from "../../assets/password/hidePasswordIcon.svg";
 import "./Authentication.css";
 
 export default function Authentication({ signup, login }) {
@@ -11,6 +13,7 @@ export default function Authentication({ signup, login }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [hidePassword, setHidePassword] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
   const guestCredentials = {
@@ -141,12 +144,20 @@ export default function Authentication({ signup, login }) {
       </label>
       <label>
         Password
-        <input
-          required
-          value={password}
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div id="password-input-container">
+          <input
+            required
+            value={password}
+            type={hidePassword ? "password" : "text"}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <img
+            id="password-toggle-icon"
+            onClick={() => setHidePassword(!hidePassword)}
+            src={hidePassword ? showPasswordIcon : hidePasswordIcon}
+            alt={hidePassword ? "hide password" : "show password"}
+          />
+        </div>
       </label>
       {signup && (
         <>

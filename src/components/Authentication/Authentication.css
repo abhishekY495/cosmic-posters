@@ -23,6 +23,28 @@
   box-shadow: 3px 3px var(--footer-background-color);
 }
 
+#password-input-container {
+  position: relative;
+}
+#password-input-container input {
+  width: 85%;
+  padding-right: 2.5rem;
+}
+
+#password-toggle-icon {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  width: 1.3rem;
+  opacity: 0.4;
+  padding-left: 0.3rem;
+  border-left: 1px solid gray;
+}
+#password-toggle-icon:hover {
+  cursor: pointer;
+  opacity: 0.3;
+}
+
 #auth-form button {
   padding: 0.15rem 0;
   font-family: var(--primary-font);
