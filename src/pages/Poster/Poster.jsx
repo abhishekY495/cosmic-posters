@@ -6,6 +6,9 @@ import { DataContext } from "../../contexts/DataContext";
 import { CartContext } from "../../contexts/CartContext";
 import { WishlistContext } from "../../contexts/WishlistContext";
 import { AuthContext } from "../../contexts/AuthContext";
+import starIcon from "../../assets/poster/star.svg";
+import emptyHeartIcon from "../../assets/poster/empty-heart.svg";
+import redHeartIcon from "../../assets/poster/filled-heart.svg";
 import "./Poster.css";
 
 export default function Poster() {
@@ -58,11 +61,7 @@ export default function Poster() {
       <div id="poster-info">
         <h2 id="poster-name">{poster?.name}</h2>
         <p id="poster-rating">
-          <img
-            className="star-icon"
-            src="https://img.icons8.com/?size=22&id=8ggStxqyboK5&format=svg"
-            alt="star"
-          />
+          <img className="star-icon" src={starIcon} alt="star" />
           {poster?.rating}
         </p>
         <p id="poster-price">₹{poster?.price}</p>
@@ -89,14 +88,14 @@ export default function Poster() {
           <img
             id="poster-wishlist-icon"
             onClick={() => removeFromWishlistBtnHandler(id)}
-            src="https://img.icons8.com/?size=22&id=V4c6yYlvXtzy&format=svg"
+            src={redHeartIcon}
             alt="red-heart"
           />
         ) : (
           <img
             id="poster-wishlist-icon"
             onClick={() => addToWishlistBtnHandler(poster)}
-            src="https://img.icons8.com/?size=22&id=4yauMM-kbvJ-&format=svg"
+            src={emptyHeartIcon}
             alt="heart"
           />
         )}
